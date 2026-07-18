@@ -206,15 +206,15 @@ img { max-width: 100%; display: block; }
   height: auto;
 }
 .deco { position: absolute; z-index: 1; }
-.deco-circles { width: 118px; bottom: 6%; left: -22px; }
-.deco-tri { width: 92px; top: 4%; right: -14px; }
+.deco-circles { width: 158px; bottom: 4%; left: -34px; }
+.deco-tri { width: 124px; top: 2%; right: -22px; }
 .deco-square {
   position: absolute;
-  width: 54px; height: 54px;
+  width: 78px; height: 78px;
   background: var(--lime);
-  top: 46%; right: -22px;
+  top: 44%; right: -30px;
   z-index: 1;
-  border-radius: 6px;
+  border-radius: 0;
 }
 
 /* マーキー */
@@ -227,17 +227,23 @@ img { max-width: 100%; display: block; }
   padding: 16px 0;
 }
 .marquee-track {
-  display: inline-flex;
-  align-items: center;
-  gap: 26px;
-  white-space: nowrap;
+  display: flex;
+  width: max-content;
   font-family: var(--font-en);
   font-weight: 700;
   font-size: 1.15rem;
   letter-spacing: 0.02em;
-  animation: scroll-x 26s linear infinite;
+  animation: scroll-x 45s linear infinite;
 }
-.marquee-track .sep { color: var(--lime); }
+.marquee-group {
+  display: flex;
+  align-items: center;
+  gap: 26px;
+  padding-right: 26px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.marquee .sep { color: var(--lime); }
 @keyframes scroll-x {
   from { transform: translateX(0); }
   to { transform: translateX(-50%); }
