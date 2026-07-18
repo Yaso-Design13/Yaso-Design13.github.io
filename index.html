@@ -30,9 +30,8 @@
         <span>Soya&nbsp;Suzuki</span>
       </a>
       <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#policy">Policy</a></li>
         <li><a href="#works">Works</a></li>
+        <li><a href="#policy">Policy</a></li>
       </ul>
       <a href="#contact" class="btn btn-sm btn-ink">Contact</a>
     </nav>
@@ -94,39 +93,63 @@
       </div>
     </section>
 
-    <!-- ===== About ===== -->
-    <section id="about" class="section">
-      <div class="container about-grid">
-        <div class="about-head reveal">
-          <p class="section-label"><span class="dot"></span> About</p>
-          <h2 class="section-title">鈴木 颯也<br /><span class="en">Soya Suzuki</span></h2>
-          <p class="about-text">
-            湘南工科大学でプロダクトデザインを学び、現在は
-            株式会社マネーフォワードでプロダクトデザイナーとして
-            働いています。「世の中にポジティブな瞬間をもっと増やす」を
-            自分のビジョンに、UIからブランド、プロダクトまで
-            領域を越えてデザインしています。
-          </p>
+    <!-- ===== Works ===== -->
+    <section id="works" class="section works">
+      <div class="container">
+        <div class="works-head reveal">
+          <p class="section-label"><span class="dot"></span> Works</p>
+          <h2 class="section-title">つくったアプリ</h2>
         </div>
 
-        <ol class="timeline reveal">
-          <li>
-            <span class="tl-date">2020.03</span>
-            <span class="tl-body">神奈川県立岸根高等学校 卒業</span>
-          </li>
-          <li>
-            <span class="tl-date">2020.04</span>
-            <span class="tl-body">湘南工科大学 総合デザイン学科 入学</span>
-          </li>
-          <li>
-            <span class="tl-date">2024.03</span>
-            <span class="tl-body">湘南工科大学 総合デザイン学科<br />プロダクトデザインコース 卒業</span>
-          </li>
-          <li class="current">
-            <span class="tl-date">2024.04</span>
-            <span class="tl-body">株式会社マネーフォワード 入社</span>
-          </li>
-        </ol>
+        <div class="works-grid">
+          <article class="work-card reveal" style="--accent: #101014;">
+            <div class="work-thumb">
+              <img src="images/work-sanpo.png" alt="さんぽしよ アプリアイコン" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">個人開発</span><span class="tag">UI</span><span class="tag">iOS</span>
+              </div>
+              <h3 class="work-title">さんぽしよ</h3>
+              <p class="work-desc">
+                ゆるく散歩を楽しむための、お題提案アプリ。「マンホールを撮る」などの
+                小さなお題で、いつもの道に発見を添えます。
+              </p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" style="--accent: #3a3a3a;">
+            <div class="work-thumb">
+              <img src="images/work-mojimoji.png" alt="mojimoji アプリアイコン" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">個人開発</span><span class="tag">UI</span><span class="tag">タイポグラフィ</span>
+              </div>
+              <h3 class="work-title">mojimoji</h3>
+              <p class="work-desc">
+                街中で見つけた文字をあつめて、つなげて言葉にする。
+                日常をタイポグラフィで遊ぶ、収集アプリ。
+              </p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" style="--accent: #8fce2b;">
+            <div class="work-thumb">
+              <img src="images/work-routon.png" alt="ROUTON アプリアイコン" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">個人開発</span><span class="tag">UI</span><span class="tag">GPS</span>
+              </div>
+              <h3 class="work-title">ROUTON</h3>
+              <p class="work-desc">
+                歩いた道が、いきものになる。GPSで描いた軌跡がキャラクターに変化する、
+                さんぽ＆ランニングアプリ。
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
@@ -155,66 +178,6 @@
             遊び心を忘れず、日常に驚きと彩りを添える工夫を凝らします。
             細部へのこだわりを通じて、使う人が笑顔になり、記憶に残るデザインを大切にします。
           </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Works ===== -->
-    <section id="works" class="section works">
-      <div class="container">
-        <div class="works-head reveal">
-          <p class="section-label"><span class="dot"></span> Works</p>
-          <h2 class="section-title">これまでの制作</h2>
-        </div>
-
-        <div class="works-grid">
-          <article class="work-card reveal" style="--accent: var(--blue);">
-            <div class="work-thumb">
-              <span class="thumb-ph">画像を入れる</span>
-            </div>
-            <div class="work-body">
-              <div class="tags">
-                <span class="tag">事業</span><span class="tag">UI</span><span class="tag">LP</span>
-              </div>
-              <h3 class="work-title">Money Forward ME</h3>
-              <p class="work-desc">
-                家計簿・資産管理アプリの体験改善から、新規事業のデザイン、
-                LP制作までを横断的に担当。
-              </p>
-            </div>
-          </article>
-
-          <article class="work-card reveal" style="--accent: var(--lime);">
-            <div class="work-thumb">
-              <span class="thumb-ph">画像を入れる</span>
-            </div>
-            <div class="work-body">
-              <div class="tags">
-                <span class="tag">UI</span><span class="tag">AIコーディング</span>
-              </div>
-              <h3 class="work-title">個人開発</h3>
-              <p class="work-desc">
-                AIコーディングを活用し、企画・UIデザイン・実装までを
-                個人で手がけたアプリ群。
-              </p>
-            </div>
-          </article>
-
-          <article class="work-card reveal" style="--accent: #e2703a;">
-            <div class="work-thumb">
-              <span class="thumb-ph">画像を入れる</span>
-            </div>
-            <div class="work-body">
-              <div class="tags">
-                <span class="tag">ブランド</span><span class="tag">プロダクト</span>
-              </div>
-              <h3 class="work-title">naro coffee</h3>
-              <p class="work-desc">
-                ボトルコーヒーのブランディングとプロダクトデザイン。
-                ラベルのアートワークまでを制作。
-              </p>
-            </div>
-          </article>
         </div>
       </div>
     </section>

@@ -342,12 +342,14 @@ img { max-width: 100%; display: block; }
   opacity: 0.08;
 }
 .work-thumb img {
-  width: 86%;
-  height: 86%;
-  object-fit: contain;
+  width: 60%;
+  height: 60%;
+  object-fit: cover;
+  border-radius: 24%;
+  box-shadow: 0 14px 30px rgba(16, 16, 20, 0.16);
   transition: transform 0.4s var(--ease);
 }
-.work-card:hover .work-thumb img { transform: scale(1.05); }
+.work-card:hover .work-thumb img { transform: scale(1.05) rotate(-2deg); }
 .thumb-ph {
   position: relative;
   font-family: var(--font-en);
