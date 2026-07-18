@@ -14,7 +14,7 @@
   --radius: 22px;
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --font-en: "Poppins", sans-serif;
+  --font-en: "Montserrat", sans-serif;
   --font-jp: "Noto Sans JP", "Hiragino Kaku Gothic ProN", "Hiragino Sans", sans-serif;
 }
 
@@ -294,7 +294,7 @@ img { max-width: 100%; display: block; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
-  align-items: center;
+  align-items: start;
   padding: clamp(34px, 5vw, 56px) 0;
   border-bottom: 1px solid var(--line);
 }
@@ -307,7 +307,13 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.03em;
   color: var(--ink);
 }
-.policy-item:nth-child(2) .policy-word { color: var(--blue); }
+.policy-sub {
+  font-family: var(--font-jp);
+  font-weight: 500;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  color: var(--ink);
+  margin-top: 16px;
+}
 .policy-desc { color: var(--muted); font-size: 1.06rem; }
 
 /* ===== Works ===== */
