@@ -183,6 +183,13 @@ img { max-width: 100%; display: block; }
   z-index: -1;
   border-radius: 3px;
 }
+/* ポジティブ のアンダーライン */
+.hero-title .ul {
+  background: linear-gradient(var(--lime), var(--lime)) no-repeat;
+  background-position: 0 100%;
+  background-size: 100% 0.16em;
+  padding-bottom: 0.05em;
+}
 .hero-lead {
   font-size: 1.06rem;
   color: var(--muted);
@@ -198,9 +205,6 @@ img { max-width: 100%; display: block; }
   z-index: 2;
   width: 100%;
   height: auto;
-  /* 紙の質感を活かしつつ、四隅をやわらかくページに溶け込ませる */
-  -webkit-mask-image: radial-gradient(120% 120% at 50% 50%, #000 82%, transparent 100%);
-  mask-image: radial-gradient(120% 120% at 50% 50%, #000 82%, transparent 100%);
 }
 .deco { position: absolute; z-index: 1; }
 .deco-circles { width: 118px; bottom: 6%; left: -22px; }
