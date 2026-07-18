@@ -301,7 +301,7 @@ img { max-width: 100%; display: block; }
 .policy-item:first-of-type { border-top: 1px solid var(--line); }
 .policy-word {
   font-family: var(--font-en);
-  font-weight: 800;
+  font-weight: 500;
   font-size: clamp(2.6rem, 7vw, 5.4rem);
   line-height: 1;
   letter-spacing: -0.03em;
