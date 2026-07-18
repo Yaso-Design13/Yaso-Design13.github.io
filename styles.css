@@ -307,7 +307,7 @@ img { max-width: 100%; display: block; }
 .policy-word {
   font-family: var(--font-en);
   font-weight: 500;
-  font-size: clamp(2.6rem, 7vw, 5.4rem);
+  font-size: clamp(2.2rem, 5.6vw, 4.4rem);
   line-height: 1;
   letter-spacing: -0.03em;
   color: var(--ink);
@@ -386,6 +386,15 @@ img { max-width: 100%; display: block; }
   letter-spacing: -0.01em;
 }
 .work-desc { color: var(--muted); font-size: 0.96rem; line-height: 1.75; }
+.work-link {
+  display: inline-block;
+  margin-top: 14px;
+  font-family: var(--font-en);
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: var(--blue);
+}
+.work-card:hover .work-link { text-decoration: underline; }
 
 /* ===== Contact ===== */
 .contact-card {
