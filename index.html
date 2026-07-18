@@ -3,114 +3,263 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name — Portfolio</title>
-  <meta name="description" content="Your Name のポートフォリオサイト。作品と制作物を紹介しています。" />
+  <title>Soya Suzuki — Portfolio</title>
+  <meta name="description" content="鈴木颯也（Soya Suzuki）のポートフォリオ。プロダクトデザイナー。UI・ブランド・プロダクトを横断してデザインしています。" />
 
-  <!-- OGP（SNSでシェアされたときの見た目。URL・画像は公開後に差し替え） -->
-  <meta property="og:title" content="Your Name — Portfolio" />
-  <meta property="og:description" content="Your Name のポートフォリオサイト。" />
+  <meta property="og:title" content="Soya Suzuki — Portfolio" />
+  <meta property="og:description" content="プロダクトデザイナー 鈴木颯也のポートフォリオ。" />
   <meta property="og:type" content="website" />
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+
   <link rel="stylesheet" href="styles.css" />
+  <!-- JSが有効なときだけ表示アニメを効かせる（無効でも本文は必ず見える） -->
+  <script>document.documentElement.className += " js";</script>
 </head>
 <body>
   <!-- ===== ヘッダー ===== -->
   <header class="site-header">
     <nav class="nav container">
-      <a href="#top" class="brand">Your Name</a>
+      <a href="#top" class="brand">
+        <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+          <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+          <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+        </svg>
+        <span>Soya&nbsp;Suzuki</span>
+      </a>
       <ul class="nav-links">
         <li><a href="#about">About</a></li>
+        <li><a href="#policy">Policy</a></li>
         <li><a href="#works">Works</a></li>
-        <li><a href="#contact">Contact</a></li>
       </ul>
-      <button id="theme-toggle" class="theme-toggle" aria-label="テーマ切り替え">🌙</button>
+      <a href="#contact" class="btn btn-sm btn-ink">Contact</a>
     </nav>
   </header>
 
   <main id="top">
     <!-- ===== ヒーロー ===== -->
-    <section class="hero container">
-      <p class="hero-eyebrow">PORTFOLIO</p>
-      <h1 class="hero-title">こんにちは、<br /><span class="accent">Your Name</span> です。</h1>
-      <p class="hero-lead">
-        ここに一行の自己紹介やキャッチコピーを書きます。<br />
-        例:「◯◯を制作しています。作品はこちら。」
-      </p>
-      <div class="hero-actions">
-        <a href="#works" class="btn btn-primary">作品を見る</a>
-        <a href="#contact" class="btn btn-ghost">お問い合わせ</a>
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="eyebrow reveal">
+            <span class="dot"></span> PORTFOLIO — PRODUCT DESIGNER
+          </p>
+          <h1 class="hero-title reveal">
+            ポジティブな<br />
+            瞬間を、<span class="hl">もっと</span><br />
+            世の中に。
+          </h1>
+          <p class="hero-lead reveal">
+            プロダクトデザイナー 鈴木颯也のポートフォリオ。<br />
+            UI・ブランド・プロダクトを横断して、
+            機能と情緒が調和したデザインを届けます。
+          </p>
+          <div class="hero-actions reveal">
+            <a href="#works" class="btn btn-blue">作品を見る <span class="arr">↗</span></a>
+            <a href="#contact" class="btn btn-outline">お問い合わせ</a>
+          </div>
+        </div>
+
+        <div class="hero-visual reveal">
+          <div class="portrait-block">
+            <img src="images/portrait.png" alt="鈴木颯也のポートレート" class="portrait" />
+          </div>
+          <!-- 装飾 -->
+          <svg class="deco deco-circles" viewBox="0 0 70 46" aria-hidden="true">
+            <circle cx="20" cy="22" r="18" fill="var(--blue)" />
+            <circle cx="40" cy="30" r="13" fill="var(--lime)" />
+          </svg>
+          <svg class="deco deco-tri" viewBox="0 0 46 24" aria-hidden="true">
+            <polygon points="0,0 22,0 22,22" fill="var(--lime)" />
+            <polygon points="24,0 46,0 46,22" fill="var(--blue)" />
+          </svg>
+          <span class="deco deco-square"></span>
+        </div>
+      </div>
+
+      <!-- スクロールする実績バー -->
+      <div class="marquee" aria-hidden="true">
+        <div class="marquee-track">
+          <span>UI DESIGN</span><span class="sep">✳</span>
+          <span>BRANDING</span><span class="sep">✳</span>
+          <span>PRODUCT DESIGN</span><span class="sep">✳</span>
+          <span>LP / WEB</span><span class="sep">✳</span>
+          <span>AI CODING</span><span class="sep">✳</span>
+          <span>UI DESIGN</span><span class="sep">✳</span>
+          <span>BRANDING</span><span class="sep">✳</span>
+          <span>PRODUCT DESIGN</span><span class="sep">✳</span>
+          <span>LP / WEB</span><span class="sep">✳</span>
+          <span>AI CODING</span><span class="sep">✳</span>
+        </div>
       </div>
     </section>
 
     <!-- ===== About ===== -->
-    <section id="about" class="section container">
-      <h2 class="section-title">About</h2>
-      <div class="about-grid">
-        <div class="about-avatar" aria-hidden="true">🙂</div>
-        <div class="about-text">
-          <p>
-            自己紹介の本文をここに書きます。どんな人で、何を作っていて、
-            何が得意か。数行で十分です。
+    <section id="about" class="section">
+      <div class="container about-grid">
+        <div class="about-head reveal">
+          <p class="section-label"><span class="dot"></span> About</p>
+          <h2 class="section-title">鈴木 颯也<br /><span class="en">Soya Suzuki</span></h2>
+          <p class="about-text">
+            湘南工科大学でプロダクトデザインを学び、現在は
+            株式会社マネーフォワードでプロダクトデザイナーとして
+            働いています。「世の中にポジティブな瞬間をもっと増やす」を
+            自分のビジョンに、UIからブランド、プロダクトまで
+            領域を越えてデザインしています。
           </p>
-          <ul class="skill-tags">
-            <li>スキル1</li>
-            <li>スキル2</li>
-            <li>スキル3</li>
-          </ul>
+        </div>
+
+        <ol class="timeline reveal">
+          <li>
+            <span class="tl-date">2020.03</span>
+            <span class="tl-body">神奈川県立岸根高等学校 卒業</span>
+          </li>
+          <li>
+            <span class="tl-date">2020.04</span>
+            <span class="tl-body">湘南工科大学 総合デザイン学科 入学</span>
+          </li>
+          <li>
+            <span class="tl-date">2024.03</span>
+            <span class="tl-body">湘南工科大学 総合デザイン学科<br />プロダクトデザインコース 卒業</span>
+          </li>
+          <li class="current">
+            <span class="tl-date">2024.04</span>
+            <span class="tl-body">株式会社マネーフォワード 入社</span>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===== My Policy ===== -->
+    <section id="policy" class="section policy">
+      <div class="container">
+        <p class="section-label reveal"><span class="dot"></span> My Policy</p>
+
+        <div class="policy-item reveal">
+          <h3 class="policy-word">Visionary</h3>
+          <p class="policy-desc">
+            Visionを描き、実現までの道筋を創るデザイナーを目指しています。
+            自分のvisionは「世の中にポジティブな瞬間をもっと増やす」です。
+          </p>
+        </div>
+        <div class="policy-item reveal">
+          <h3 class="policy-word">Aesthetically</h3>
+          <p class="policy-desc">
+            美しさを追求し、直感的に心地よい体験を設計します。
+            機能と情緒が調和したデザインで、使う人の心を満たす表現を目指しています。
+          </p>
+        </div>
+        <div class="policy-item reveal">
+          <h3 class="policy-word">Playfulness</h3>
+          <p class="policy-desc">
+            遊び心を忘れず、日常に驚きと彩りを添える工夫を凝らします。
+            細部へのこだわりを通じて、使う人が笑顔になり、記憶に残るデザインを大切にします。
+          </p>
         </div>
       </div>
     </section>
 
     <!-- ===== Works ===== -->
-    <section id="works" class="section container">
-      <h2 class="section-title">Works</h2>
-      <div class="works-grid">
-        <!-- 作品カード（コピーして増やせます） -->
-        <article class="work-card">
-          <div class="work-thumb" style="--thumb: #7c9cf5;">作品画像</div>
-          <div class="work-body">
-            <h3 class="work-title">作品タイトル 01</h3>
-            <p class="work-desc">作品の短い説明。使ったツールや制作の意図など。</p>
-            <a href="#" class="work-link">詳しく見る →</a>
-          </div>
-        </article>
+    <section id="works" class="section works">
+      <div class="container">
+        <div class="works-head reveal">
+          <p class="section-label"><span class="dot"></span> Works</p>
+          <h2 class="section-title">これまでの制作</h2>
+        </div>
 
-        <article class="work-card">
-          <div class="work-thumb" style="--thumb: #f5a97c;">作品画像</div>
-          <div class="work-body">
-            <h3 class="work-title">作品タイトル 02</h3>
-            <p class="work-desc">作品の短い説明。使ったツールや制作の意図など。</p>
-            <a href="#" class="work-link">詳しく見る →</a>
-          </div>
-        </article>
+        <div class="works-grid">
+          <article class="work-card reveal" style="--accent: var(--blue);">
+            <div class="work-thumb">
+              <img src="images/work-mf.png" alt="Money Forward ME のUI" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">事業</span><span class="tag">UI</span><span class="tag">LP</span>
+              </div>
+              <h3 class="work-title">Money Forward ME</h3>
+              <p class="work-desc">
+                家計簿・資産管理アプリの体験改善から、新規事業のデザイン、
+                LP制作までを横断的に担当。
+              </p>
+            </div>
+          </article>
 
-        <article class="work-card">
-          <div class="work-thumb" style="--thumb: #8ce0b0;">作品画像</div>
-          <div class="work-body">
-            <h3 class="work-title">作品タイトル 03</h3>
-            <p class="work-desc">作品の短い説明。使ったツールや制作の意図など。</p>
-            <a href="#" class="work-link">詳しく見る →</a>
-          </div>
-        </article>
+          <article class="work-card reveal" style="--accent: var(--lime);">
+            <div class="work-thumb">
+              <img src="images/work-kojin.png" alt="個人開発アプリのUI" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">UI</span><span class="tag">AIコーディング</span>
+              </div>
+              <h3 class="work-title">個人開発</h3>
+              <p class="work-desc">
+                AIコーディングを活用し、企画・UIデザイン・実装までを
+                個人で手がけたアプリ群。
+              </p>
+            </div>
+          </article>
+
+          <article class="work-card reveal" style="--accent: #e2703a;">
+            <div class="work-thumb">
+              <img src="images/work-naro.png" alt="naro coffee のプロダクト" loading="lazy" />
+            </div>
+            <div class="work-body">
+              <div class="tags">
+                <span class="tag">ブランド</span><span class="tag">プロダクト</span>
+              </div>
+              <h3 class="work-title">naro coffee</h3>
+              <p class="work-desc">
+                ボトルコーヒーのブランディングとプロダクトデザイン。
+                ラベルのアートワークまでを制作。
+              </p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- ===== Contact ===== -->
-    <section id="contact" class="section container">
-      <h2 class="section-title">Contact</h2>
-      <p class="contact-lead">お仕事のご相談・ご連絡はこちらから。</p>
-      <div class="contact-links">
-        <a href="mailto:your@email.com" class="contact-link">✉️ Email</a>
-        <a href="#" class="contact-link">𝕏 X (Twitter)</a>
-        <a href="#" class="contact-link">📷 Instagram</a>
-        <a href="#" class="contact-link">💻 GitHub</a>
+    <section id="contact" class="section">
+      <div class="container">
+        <div class="contact-card reveal">
+          <svg class="deco c-tri" viewBox="0 0 46 24" aria-hidden="true">
+            <polygon points="0,24 22,24 0,2" fill="var(--lime)" />
+            <polygon points="24,24 46,24 24,2" fill="#fff" />
+          </svg>
+          <svg class="deco c-circles" viewBox="0 0 70 46" aria-hidden="true">
+            <circle cx="20" cy="22" r="18" fill="var(--lime)" />
+            <circle cx="40" cy="30" r="13" fill="#fff" />
+          </svg>
+
+          <p class="section-label light"><span class="dot"></span> Contact</p>
+          <h2 class="contact-title">一緒に、良いものを。</h2>
+          <p class="contact-lead">
+            お仕事のご相談・ご連絡はお気軽にどうぞ。
+          </p>
+          <div class="contact-links">
+            <a href="mailto:leafsoya66@gmail.com" class="btn btn-lime">✉️ メールする</a>
+            <a href="#" class="contact-social">X (Twitter)</a>
+            <a href="#" class="contact-social">Instagram</a>
+            <a href="#" class="contact-social">GitHub</a>
+          </div>
+        </div>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p>© <span id="year"></span> Your Name</p>
+    <div class="container footer-inner">
+      <a href="#top" class="brand">
+        <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+          <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+          <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+        </svg>
+        <span>Soya&nbsp;Suzuki</span>
+      </a>
+      <p class="copy">© <span id="year"></span> Soya Suzuki</p>
     </div>
   </footer>
 

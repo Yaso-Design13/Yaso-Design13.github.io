@@ -1,22 +1,25 @@
 // フッターの年号を自動更新
 document.getElementById("year").textContent = new Date().getFullYear();
 
-// テーマ切り替え（ライト / ダーク）。選択は端末に保存されます。
-const toggle = document.getElementById("theme-toggle");
-const root = document.documentElement;
-
-function applyTheme(theme) {
-  root.setAttribute("data-theme", theme);
-  toggle.textContent = theme === "dark" ? "☀️" : "🌙";
+// スクロールで要素をふわっと表示
+const items = document.querySelectorAll(".reveal");
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.classList.add("in");
+          io.unobserve(e.target);
+        }
+      });
+    },
+    { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
+  );
+  items.forEach((el, i) => {
+    // 近接する要素は少しずつ遅らせて表示（スタッガー）
+    el.style.transitionDelay = `${(i % 4) * 70}ms`;
+    io.observe(el);
+  });
+} else {
+  items.forEach((el) => el.classList.add("in"));
 }
-
-// 保存値、なければOSの設定に従う
-const saved = localStorage.getItem("theme");
-const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-applyTheme(saved || (prefersDark ? "dark" : "light"));
-
-toggle.addEventListener("click", () => {
-  const next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
-  applyTheme(next);
-  localStorage.setItem("theme", next);
-});
