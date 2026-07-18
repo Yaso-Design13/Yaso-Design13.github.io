@@ -450,6 +450,21 @@ img { max-width: 100%; display: block; }
   flex-wrap: wrap;
 }
 .copy { color: var(--muted); font-family: var(--font-en); font-size: 0.9rem; }
+.footer-contact {
+  margin-bottom: 26px;
+  padding-bottom: 26px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.02rem;
+  color: var(--ink);
+}
+.footer-contact a {
+  font-weight: 700;
+  border-bottom: 2px solid var(--lime);
+  padding-bottom: 1px;
+  transition: color 0.2s;
+}
+.footer-contact a:hover { color: var(--blue); }
+.x-ico { width: 1em; height: 1em; }
 
 /* ===== スクロール表示アニメ ===== */
 .js .reveal {
