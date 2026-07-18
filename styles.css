@@ -61,10 +61,9 @@ img { max-width: 100%; display: block; }
 }
 .btn:hover { transform: translateY(-3px); }
 .btn .arr { transition: transform 0.25s var(--ease); }
-.btn:hover .arr { transform: translate(2px, -2px); }
+.btn:hover .arr { transform: translateY(3px); }
 .btn-sm { padding: 9px 18px; font-size: 0.85rem; }
-.btn-blue { background: var(--blue); color: #fff; box-shadow: 0 8px 22px rgba(59, 77, 246, 0.28); }
-.btn-blue:hover { box-shadow: 0 14px 30px rgba(59, 77, 246, 0.38); }
+.btn-blue { background: var(--blue); color: #fff; }
 .btn-lime { background: var(--lime); color: var(--ink); }
 .btn-ink { background: var(--ink); color: #fff; }
 .btn-outline { border-color: var(--ink); color: var(--ink); }
