@@ -3,14 +3,14 @@
    トンマナ: オフホワイト × ブルー × ライム × 黒 / geometric sans
    ========================================================= */
 :root {
-  --cream: #f1ede6;
-  --cream-2: #e8e3db;
+  --cream: #f9f9f8;
+  --cream-2: #f0f0ee;
   --ink: #101014;
   --blue: #3b4df6;
   --lime: #c3f14b;
   --white: #ffffff;
   --muted: #5b5c64;
-  --line: #ded8cd;
+  --line: #e8e8e5;
   --radius: 22px;
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
