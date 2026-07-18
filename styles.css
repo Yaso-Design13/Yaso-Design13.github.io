@@ -187,8 +187,8 @@ img { max-width: 100%; display: block; }
 .hero-title .ul {
   background: linear-gradient(var(--lime), var(--lime)) no-repeat;
   background-position: 0 100%;
-  background-size: 100% 0.16em;
-  padding-bottom: 0.05em;
+  background-size: 100% 0.28em;
+  padding-bottom: 0.06em;
 }
 .hero-lead {
   font-size: 1.06rem;
