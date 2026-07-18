@@ -3,14 +3,14 @@
    トンマナ: オフホワイト × ブルー × ライム × 黒 / geometric sans
    ========================================================= */
 :root {
-  --cream: #f4f4ec;
-  --cream-2: #ecece2;
+  --cream: #f1ede6;
+  --cream-2: #e8e3db;
   --ink: #101014;
   --blue: #3b4df6;
   --lime: #c3f14b;
   --white: #ffffff;
   --muted: #5b5c64;
-  --line: #e0e0d5;
+  --line: #ded8cd;
   --radius: 22px;
   --max: 1120px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
@@ -163,8 +163,8 @@ img { max-width: 100%; display: block; }
 .hero-title {
   font-family: var(--font-jp);
   font-weight: 900;
-  font-size: clamp(2.6rem, 6.6vw, 5rem);
-  line-height: 1.18;
+  font-size: clamp(2.4rem, 5.6vw, 4.6rem);
+  line-height: 1.2;
   letter-spacing: -0.02em;
   margin-bottom: 30px;
 }
@@ -191,34 +191,25 @@ img { max-width: 100%; display: block; }
 }
 .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
 
-/* ヒーロー右: ポートレート + 装飾 */
-.hero-visual { position: relative; justify-self: center; width: 100%; max-width: 400px; }
-.portrait-block {
+/* ヒーロー右: イラスト + 装飾 */
+.hero-visual { position: relative; justify-self: center; width: 100%; max-width: 440px; }
+.illust {
   position: relative;
-  aspect-ratio: 4 / 5;
-  background: var(--blue);
-  border-radius: 30px 30px 30px 90px;
-  overflow: hidden;
   z-index: 2;
-}
-.portrait {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 98%;
+  width: 100%;
   height: auto;
-  object-fit: contain;
-  object-position: bottom;
+  /* 紙の質感を活かしつつ、四隅をやわらかくページに溶け込ませる */
+  -webkit-mask-image: radial-gradient(120% 120% at 50% 50%, #000 82%, transparent 100%);
+  mask-image: radial-gradient(120% 120% at 50% 50%, #000 82%, transparent 100%);
 }
-.deco { position: absolute; z-index: 3; }
-.deco-circles { width: 118px; bottom: -26px; left: -34px; }
-.deco-tri { width: 92px; top: -30px; right: -22px; z-index: 1; }
+.deco { position: absolute; z-index: 1; }
+.deco-circles { width: 118px; bottom: 6%; left: -22px; }
+.deco-tri { width: 92px; top: 4%; right: -14px; }
 .deco-square {
   position: absolute;
   width: 54px; height: 54px;
   background: var(--lime);
-  top: 40%; right: -30px;
+  top: 46%; right: -22px;
   z-index: 1;
   border-radius: 6px;
 }
