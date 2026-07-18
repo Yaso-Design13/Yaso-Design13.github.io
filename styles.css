@@ -320,7 +320,6 @@ img { max-width: 100%; display: block; }
 }
 .work-card {
   background: var(--white);
-  border: 1px solid var(--line);
   border-radius: var(--radius);
   overflow: hidden;
   transition: transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
@@ -331,19 +330,11 @@ img { max-width: 100%; display: block; }
 }
 .work-thumb {
   aspect-ratio: 1 / 1;
-  background: var(--cream);
-  border-bottom: 1px solid var(--line);
+  background: var(--white);
   position: relative;
   overflow: hidden;
   display: grid;
   place-items: center;
-}
-.work-thumb::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: var(--accent);
-  opacity: 0.08;
 }
 .work-thumb img {
   width: 60%;
