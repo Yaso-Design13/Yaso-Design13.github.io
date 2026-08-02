@@ -484,7 +484,7 @@ img { max-width: 100%; display: block; }
   transition: color 0.2s;
 }
 .footer-contact a:hover { color: var(--blue); }
-.x-ico { width: 1em; height: 1em; }
+.soc-ico { width: 1em; height: 1em; }
 
 /* ===== スクロール表示アニメ ===== */
 .js .reveal {
