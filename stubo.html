@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>STUBO — 旅の予定も思い出も、あなただけのチケットに。</title>
+  <meta name="description" content="STUBO（スツボ）は、旅行の予定や思い出を“チケット”のかたちにして、大切な人とシェアできる旅行アプリ。" />
+
+  <meta property="og:title" content="STUBO — 旅の予定も思い出も、あなただけのチケットに。" />
+  <meta property="og:description" content="旅の予定や思い出を“チケット”にして、みんなとシェアする旅行アプリ。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yaso-design13.github.io/stubo.html" />
+  <meta property="og:image" content="https://yaso-design13.github.io/images/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://yaso-design13.github.io/images/ogp.png" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Noto+Sans+JP:wght@400;500;700;800;900&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="stubo.css" />
+
+  <!-- アクセス解析（Umami・Cookieなし） -->
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="2fbafd78-92d8-40ac-81d7-92cc947493ab"></script>
+
+  <script>document.documentElement.className += " js";</script>
+</head>
+<body class="stubo">
+  <!-- ===== ヘッダー ===== -->
+  <div class="st-shell">
+    <!-- ===== 左：ブランドパネル（PCで固定 / モバイルはヒーロー） ===== -->
+    <!-- ===== 左：PC専用ブランドパネル ===== -->
+    <aside class="st-brandpanel">
+      <div class="st-bp-inner">
+        <img src="images/STUBO/char-4.svg" alt="" aria-hidden="true" class="st-char st-char-panel" />
+        <img src="images/STUBO/Logo_all.svg" alt="STUBO" class="st-bp-logo" />
+        <p class="st-bp-tag">旅の予定も思い出も、<br />あなただけのチケットに。</p>
+        <a href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" class="btn-pill" data-umami-event="stubo-panel-AppStore">
+          <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.14-2.53.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.13zM14.53 4.5c.72-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
+          アプリをインストール
+        </a>
+      </div>
+      <p class="st-bp-foot">© <span data-year></span> Yaso Design</p>
+    </aside>
+
+    <!-- ===== 右：スクロールするコンテンツ ===== -->
+    <main class="st-scroll" id="top">
+      <!-- ===== 最上部ヒーロー ===== -->
+      <section class="st-hero">
+        <a href="index.html" class="st-aside-back">← 作品一覧へ</a>
+        <div class="st-hero-inner">
+        <p class="st-hero-title reveal">
+          旅の予定も思い出も、<br />
+          あなただけのチケットに。
+        </p>
+        <span class="st-logo reveal" role="img" aria-label="STUBO">
+            <svg viewBox="0 0 52 16" fill="currentColor" aria-hidden="true">
+              <path d="M10.3779 0.0361337C10.4261 -0.0120558 10.5045 -0.0120334 10.5527 0.0361337L15.9639 5.44727C16.012 5.49547 16.0121 5.57389 15.9639 5.62207L9.2207 12.3643C9.21338 12.3564 9.20685 12.3475 9.19922 12.3398C8.8136 11.9544 8.18828 11.9543 7.80274 12.3398C7.41744 12.7254 7.4174 13.3508 7.80274 13.7363C7.81036 13.744 7.81934 13.7505 7.82715 13.7578L5.62207 15.9639C5.57389 16.0121 5.49547 16.012 5.44727 15.9639L0.0361337 10.5527C-0.0120334 10.5045 -0.0120558 10.4261 0.0361337 10.3779L2.24121 8.17188C2.62826 8.53555 3.23606 8.52957 3.61426 8.15137C3.99238 7.77316 3.99842 7.16535 3.63477 6.77832L10.3779 0.0361337Z"/>
+              <path d="M19.24 9.75C19.3933 10.0167 19.5567 10.2533 19.73 10.46C19.91 10.66 20.1067 10.8167 20.32 10.93C20.5333 11.0367 20.7733 11.09 21.04 11.09C21.36 11.09 21.62 11.0033 21.82 10.83C22.02 10.6567 22.12 10.4333 22.12 10.16C22.12 9.9 22.0567 9.69333 21.93 9.54C21.8033 9.38 21.6267 9.24667 21.4 9.14C21.18 9.02667 20.9233 8.91667 20.63 8.81C20.4567 8.75 20.2633 8.67 20.05 8.57C19.8367 8.46333 19.6333 8.33333 19.44 8.18C19.2467 8.02 19.0867 7.82667 18.96 7.6C18.8333 7.36667 18.77 7.08667 18.77 6.76C18.77 6.38667 18.8667 6.06 19.06 5.78C19.2533 5.49333 19.5133 5.27333 19.84 5.12C20.1733 4.96 20.55 4.88 20.97 4.88C21.3833 4.88 21.7433 4.95333 22.05 5.1C22.3567 5.24667 22.6133 5.43333 22.82 5.66C23.0333 5.88667 23.2 6.12333 23.32 6.37L22.36 6.91C22.2733 6.73667 22.1633 6.57667 22.03 6.43C21.8967 6.27667 21.74 6.15667 21.56 6.07C21.3867 5.97667 21.1833 5.93 20.95 5.93C20.6233 5.93 20.3833 6.00667 20.23 6.16C20.0767 6.30667 20 6.48 20 6.68C20 6.86 20.0533 7.02333 20.16 7.17C20.2733 7.31 20.4467 7.44333 20.68 7.57C20.9133 7.69667 21.2167 7.82667 21.59 7.96C21.7967 8.03333 22.0033 8.12667 22.21 8.24C22.4233 8.35333 22.6167 8.49667 22.79 8.67C22.9633 8.83667 23.1 9.03333 23.2 9.26C23.3067 9.48667 23.36 9.75333 23.36 10.06C23.36 10.3867 23.2967 10.68 23.17 10.94C23.0433 11.2 22.87 11.42 22.65 11.6C22.43 11.7733 22.18 11.9067 21.9 12C21.6267 12.1 21.34 12.15 21.04 12.15C20.6267 12.15 20.2433 12.07 19.89 11.91C19.5433 11.7433 19.24 11.5233 18.98 11.25C18.72 10.9767 18.5133 10.68 18.36 10.36L19.24 9.75ZM24.271 6.09V5L29.151 5V6.09H27.301V12H26.111V6.09H24.271ZM30.3601 5H31.5401V9.65C31.5401 10.0833 31.6534 10.4333 31.8801 10.7C32.1134 10.96 32.4567 11.09 32.9101 11.09C33.3567 11.09 33.6967 10.96 33.9301 10.7C34.1634 10.4333 34.2801 10.0833 34.2801 9.65V5H35.4601V9.7C35.4601 10.0867 35.3967 10.4333 35.2701 10.74C35.1501 11.04 34.9767 11.2967 34.7501 11.51C34.5234 11.7233 34.2534 11.8867 33.9401 12C33.6267 12.1133 33.2834 12.17 32.9101 12.17C32.5367 12.17 32.1934 12.1133 31.8801 12C31.5667 11.8867 31.2934 11.7233 31.0601 11.51C30.8334 11.2967 30.6601 11.04 30.5401 10.74C30.4201 10.4333 30.3601 10.0867 30.3601 9.7V5ZM38.2726 8.39V7.81H39.4026C39.6226 7.81 39.8159 7.77333 39.9826 7.7C40.1492 7.62667 40.2792 7.52333 40.3726 7.39C40.4659 7.25 40.5126 7.08333 40.5126 6.89C40.5126 6.59667 40.4092 6.37 40.2026 6.21C39.9959 6.05 39.7292 5.97 39.4026 5.97H38.5526V11.03H39.5326C39.7992 11.03 40.0359 10.9867 40.2426 10.9C40.4492 10.8133 40.6126 10.6833 40.7326 10.51C40.8526 10.3367 40.9126 10.12 40.9126 9.86C40.9126 9.67333 40.8759 9.51 40.8026 9.37C40.7359 9.22333 40.6392 9.10333 40.5126 9.01C40.3926 8.91 40.2492 8.84 40.0826 8.8C39.9159 8.75333 39.7326 8.73 39.5326 8.73H38.2726V8.08H39.6026C39.9426 8.08 40.2626 8.11667 40.5626 8.19C40.8626 8.26333 41.1292 8.37667 41.3626 8.53C41.6026 8.68333 41.7892 8.88 41.9226 9.12C42.0559 9.36 42.1226 9.64667 42.1226 9.98C42.1226 10.44 42.0126 10.82 41.7926 11.12C41.5792 11.42 41.2826 11.6433 40.9026 11.79C40.5292 11.93 40.0959 12 39.6026 12H37.3726V5H39.4826C39.9226 5 40.3092 5.06333 40.6426 5.19C40.9826 5.31667 41.2459 5.51 41.4326 5.77C41.6259 6.03 41.7226 6.36 41.7226 6.76C41.7226 7.10667 41.6259 7.40333 41.4326 7.65C41.2459 7.89 40.9826 8.07333 40.6426 8.2C40.3092 8.32667 39.9226 8.39 39.4826 8.39H38.2726ZM44.6187 8.5C44.6187 8.98 44.7187 9.41 44.9187 9.79C45.1253 10.1633 45.4087 10.4567 45.7687 10.67C46.1287 10.8833 46.5387 10.99 46.9987 10.99C47.4653 10.99 47.8753 10.8833 48.2287 10.67C48.5887 10.4567 48.8687 10.1633 49.0687 9.79C49.2753 9.41 49.3787 8.98 49.3787 8.5C49.3787 8.02 49.2787 7.59333 49.0787 7.22C48.8787 6.84 48.5987 6.54333 48.2387 6.33C47.8853 6.11667 47.472 6.01 46.9987 6.01C46.5387 6.01 46.1287 6.11667 45.7687 6.33C45.4087 6.54333 45.1253 6.84 44.9187 7.22C44.7187 7.59333 44.6187 8.02 44.6187 8.5ZM43.3687 8.5C43.3687 7.97333 43.4587 7.49 43.6387 7.05C43.8187 6.61 44.072 6.23 44.3987 5.91C44.732 5.58333 45.1187 5.33 45.5587 5.15C46.0053 4.97 46.4853 4.88 46.9987 4.88C47.5253 4.88 48.0087 4.97 48.4487 5.15C48.8887 5.33 49.272 5.58333 49.5987 5.91C49.932 6.23 50.1887 6.61 50.3687 7.05C50.5487 7.49 50.6387 7.97333 50.6387 8.5C50.6387 9.02 50.5487 9.50333 50.3687 9.95C50.1887 10.3967 49.9353 10.7833 49.6087 11.11C49.282 11.4367 48.8953 11.6933 48.4487 11.88C48.0087 12.06 47.5253 12.15 46.9987 12.15C46.4787 12.15 45.9953 12.06 45.5487 11.88C45.102 11.6933 44.7153 11.4367 44.3887 11.11C44.0687 10.7833 43.8187 10.3967 43.6387 9.95C43.4587 9.50333 43.3687 9.02 43.3687 8.5Z"/>
+            </svg>
+        </span>
+        <div class="st-hero-visual reveal" data-anim="scale">
+          <img src="images/STUBO/stubo-top.png" alt="STUBO で作った旅のチケットを表示しているスマホ" class="st-hero-photo" width="1122" height="1402" />
+        </div>
+        <p class="st-hero-lead reveal">
+          旅行の予定や思い出を<br />
+          チケットにして<br />
+          シェアできる旅行アプリ
+        </p>
+        <div class="st-store">
+          <a href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" class="btn-pill" data-umami-event="stubo-hero-AppStore">
+            <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.14-2.53.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.13zM14.53 4.5c.72-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
+            アプリをインストール
+          </a>
+        </div>
+        </div>
+      </section>
+
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="st-about">
+      <svg class="st-dots" viewBox="0 0 140 200" fill="none" aria-hidden="true">
+        <path d="M120,0 C60,40 20,90 30,200" />
+      </svg>
+      <div class="container">
+        <div class="sec-head">
+          <img src="images/STUBO/char-2.svg" alt="" aria-hidden="true" class="st-char st-char-about reveal" data-anim="scale" />
+          <p class="eyebrow-jp reveal">STUBOって？</p>
+          <h2 class="display-en reveal">ABOUT</h2>
+          <p class="sec-lead reveal">
+            旅行先や日程を選ぶだけでチケットに、<br />
+            チケットを友達や家族とシェアして、<br />
+            もっと旅行を楽しみましょう。
+          </p>
+        </div>
+
+        <ul class="st-features">
+          <li class="st-feature reveal" data-anim="scale">
+            <span class="st-feature-en">TICKET</span>
+            <h3 class="st-feature-title">🎫 予定をチケットに</h3>
+            <p class="st-feature-desc">行き先や日程を入力すると、旅がそのまま1枚のチケットに。</p>
+          </li>
+          <li class="st-feature reveal" data-anim="scale">
+            <span class="st-feature-en">SHARE</span>
+            <h3 class="st-feature-title">🤝 みんなとシェア</h3>
+            <p class="st-feature-desc">作ったチケットを友達や家族と共有。一緒に旅を計画できる。</p>
+          </li>
+          <li class="st-feature reveal" data-anim="scale">
+            <span class="st-feature-en">VLOG</span>
+            <h3 class="st-feature-title">🎬 旅のVlogをつくる</h3>
+            <p class="st-feature-desc">旅行が終わると自動で写真をピックして旅の思い出Vlog動画を作成します。</p>
+          </li>
+        </ul>
+
+        <div class="st-screens-wrap">
+          <div class="st-screens">
+            <div class="st-screens-track">
+              <figure class="st-screen">
+                <img src="images/STUBO/stubo-ticket.png" alt="旅程がチケットになった画面" width="1000" height="2037" />
+                <figcaption>旅の予定＝<span>チケット</span></figcaption>
+              </figure>
+              <figure class="st-screen">
+                <img src="images/STUBO/stubo-group.png" alt="グループ一覧の画面" width="1000" height="2037" />
+                <figcaption>グループで<span>共有</span></figcaption>
+              </figure>
+              <figure class="st-screen">
+                <img src="images/STUBO/stubo-vlog.png" alt="旅のVlogを作る画面" width="1000" height="2037" />
+                <figcaption>旅の<span>Vlog</span></figcaption>
+              </figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FAQ ===== -->
+    <section class="st-faq">
+      <div class="container">
+        <div class="sec-head">
+          <img src="images/STUBO/char-3.svg" alt="" aria-hidden="true" class="st-char st-char-faq reveal" data-anim="scale" />
+          <p class="eyebrow-jp reveal">よくある質問</p>
+          <h2 class="display-en reveal">FAQ</h2>
+        </div>
+        <div class="st-faq-list">
+          <details class="st-qa reveal">
+            <summary><span class="q">Q.</span> 無料で使えますか？</summary>
+            <p class="a">基本お使いいただけます。一部機能はプレミアム登録が必要になります。詳しくはアプリをご確認ください。</p>
+          </details>
+          <details class="st-qa reveal">
+            <summary><span class="q">Q.</span> Android でも使えますか？</summary>
+            <p class="a">お使いいただけません。現在iOS版のみ提供しております。</p>
+          </details>
+          <details class="st-qa reveal">
+            <summary><span class="q">Q.</span> 作ったチケットはどうやってシェアしますか？</summary>
+            <p class="a">グループを作成した後、招待するボタンより招待リンクをシェア相手に共有していただくとグループに参加することができます。</p>
+          </details>
+          <details class="st-qa reveal">
+            <summary><span class="q">Q.</span> 一人でも使えますか？</summary>
+            <p class="a">お使いいただけます。一人旅の記録アプリとしてもご活用いただけます。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="st-cta-wrap">
+      <div class="container">
+        <div class="st-cta reveal">
+          <span class="ring r1" aria-hidden="true"></span>
+          <span class="ring r2" aria-hidden="true"></span>
+          <p class="eyebrow-jp">さあ、はじめよう</p>
+          <h2 class="st-cta-title">さっそく STUBO で<br />旅に出よう。</h2>
+          <div class="st-store">
+            <a href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" class="btn-pill" data-umami-event="stubo-cta-AppStore">
+              <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.14-2.53.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.13zM14.53 4.5c.72-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
+              アプリをインストール
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+      <footer class="site-footer">
+        <div class="container">
+          <div class="footer-inner">
+            <a href="index.html" class="brand">
+              <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+                <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+                <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+              </svg>
+              <span>Yaso&nbsp;Design</span>
+            </a>
+            <p class="copy">© <span data-year></span> Yaso Design</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+  </div><!-- /.st-shell -->
+
+  <!-- 下部固定のダウンロードボタン -->
+  <a class="st-sticky-cta" href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" data-umami-event="stubo-sticky-AppStore" aria-label="アプリをインストール">
+    <svg class="apple" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.05 12.04c-.03-2.6 2.13-3.85 2.22-3.91-1.21-1.77-3.09-2.01-3.76-2.04-1.6-.16-3.12.94-3.93.94-.81 0-2.06-.92-3.39-.9-1.74.03-3.35 1.01-4.25 2.57-1.81 3.14-.46 7.79 1.3 10.34.86 1.25 1.89 2.65 3.24 2.6 1.3-.05 1.79-.84 3.36-.84 1.57 0 2.01.84 3.39.81 1.4-.02 2.28-1.27 3.14-2.53.99-1.45 1.4-2.85 1.42-2.92-.03-.01-2.72-1.04-2.75-4.13zM14.53 4.5c.72-.87 1.2-2.08 1.07-3.28-1.03.04-2.28.69-3.02 1.55-.66.77-1.24 2-1.08 3.18 1.15.09 2.32-.58 3.03-1.45z"/></svg>
+    アプリをインストール
+  </a>
+
+  <script src="stubo.js"></script>
+</body>
+</html>

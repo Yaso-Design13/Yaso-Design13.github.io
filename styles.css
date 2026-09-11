@@ -394,6 +394,25 @@ img { max-width: 100%; display: block; }
 }
 .work-card:hover .work-link { text-decoration: underline; }
 
+/* 詳しく見る（ボタン風・STUBO等の詳細ページ用） */
+.work-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 16px;
+  font-family: var(--font-en);
+  font-weight: 700;
+  font-size: 0.86rem;
+  color: #fff;
+  background: var(--accent, var(--blue));
+  padding: 9px 18px;
+  border-radius: 999px;
+  transition: transform 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+.work-cta .arr { transition: transform 0.25s var(--ease); }
+.work-card:hover .work-cta { transform: translateY(-2px); box-shadow: 0 10px 22px color-mix(in srgb, var(--accent, var(--blue)) 40%, transparent); }
+.work-card:hover .work-cta .arr { transform: translateX(3px); }
+
 /* ===== Contact ===== */
 .contact-card {
   position: relative;
