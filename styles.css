@@ -97,10 +97,13 @@ em { font-style: normal; }
   justify-content: space-between;
   padding: 104px var(--gutter) var(--gutter);
 }
+/* 左上に紹介文と肩書きをまとめる */
 .hero-top {
   display: flex;
-  justify-content: space-between;
-  gap: 40px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.1em;
+  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
 }
 .hero-intro {
   max-width: 19em;
@@ -115,7 +118,6 @@ em { font-style: normal; }
 /* 日本語を文節の切れ目で折り返す */
 .nb { display: inline-block; }
 .hero-meta {
-  text-align: right;
   font-size: clamp(1.05rem, 1.55vw, 1.3rem);
   font-weight: 500;
   line-height: 1.6;
@@ -131,7 +133,8 @@ em { font-style: normal; }
   gap: 24px;
 }
 .hero-title {
-  font-size: clamp(88px, 20vw, 380px);
+  /* 画面が低いときは高さに合わせて小さくし、左上の文章とくっつかないようにする */
+  font-size: clamp(88px, min(20vw, 26svh), 380px);
   font-weight: 700;
   line-height: 0.84;
   letter-spacing: -0.065em;
@@ -533,8 +536,6 @@ em { font-style: normal; }
 @media (max-width: 640px) {
   .nav a:nth-child(n+3) { display: none; }
   .hero { padding-top: 88px; }
-  .hero-top { flex-direction: column; gap: 20px; }
-  .hero-meta { text-align: left; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .hero-year { padding-bottom: 0; }
   .hero-stack { left: 54%; top: 54%; width: 48vw; }
