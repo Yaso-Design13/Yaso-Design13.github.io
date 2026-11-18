@@ -77,7 +77,7 @@ if (statement) {
   update();
 }
 
-// My Policy：散らばった単語が、スクロールに合わせて定位置に集まって一文になる
+// My Policy：画面の上の方に散らばった単語が、スクロールに合わせて下へ降りてきて一文に揃う
 const gathers = [...document.querySelectorAll("[data-gather]")];
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 if (gathers.length && !reduceMotion) {
@@ -112,26 +112,45 @@ if (gathers.length && !reduceMotion) {
     const words = [...el.querySelectorAll(".g")].map((g) => ({
       g,
       rx: rand(), // 横の散らばり位置
-      ry: rand(), // どれだけ下から来るか
+      ry: rand(), // どれだけ上から降りてくるか
       rd: rand(), // 動き出すタイミングのずれ
       dx: 0,
       dy: 0,
     }));
+    // 散らばり先はマス目に1語ずつ割り振って、単語同士が重なりにくいようにする
+    const order = words.map((_, i) => i).sort(() => rand() - 0.5);
+    words.forEach((w, i) => (w.cell = order[i]));
     return { el, words };
   });
 
-  // 散らばり先を計算（画面幅の中に収まるように）
+  // 散らばり先を計算：横は画面幅いっぱい、縦は「止まった画面」の上側の空き
   const layout = () => {
     const vw = document.documentElement.clientWidth;
     const vh = window.innerHeight;
     const margin = Math.min(40, vw * 0.04);
-    blocks.forEach(({ words }) => {
+    blocks.forEach(({ el, words }) => {
+      const stage = el.closest(".policy-stage");
+      words.forEach((w) => (w.g.style.transform = "none"));
+      const sentenceTop = el.getBoundingClientRect().top;
+      const stageTop = stage.getBoundingClientRect().top;
+      // 止まった画面での文の位置（画面上端から）
+      const restTop = sentenceTop - stageTop;
+      const areaTop = Math.min(130, vh * 0.16);
+      const areaBottom = restTop + el.offsetHeight * 0.35;
+      const cols = vw < 640 ? 2 : 3;
+      const rows = Math.ceil(words.length / cols);
+      const cellW = (vw - margin * 2) / cols;
+      const cellH = (areaBottom - areaTop) / rows;
       words.forEach((w) => {
-        w.g.style.transform = "none";
         const r = w.g.getBoundingClientRect();
-        const targetX = margin + w.rx * Math.max(0, vw - r.width - margin * 2);
+        const col = w.cell % cols;
+        const row = Math.floor(w.cell / cols);
+        const x = margin + col * cellW + w.rx * Math.max(0, cellW - r.width);
+        const targetX = Math.min(x, vw - margin - r.width);
+        const wordRest = r.top - stageTop; // 揃ったときの単語の位置
+        const targetY = areaTop + row * cellH + w.ry * Math.max(0, cellH - r.height);
         w.dx = targetX - r.left;
-        w.dy = (0.1 + w.ry * 0.9) * vh;
+        w.dy = targetY - wordRest;
       });
     });
   };
@@ -140,9 +159,10 @@ if (gathers.length && !reduceMotion) {
   const update = () => {
     const vh = window.innerHeight;
     blocks.forEach(({ el, words }) => {
-      const top = el.getBoundingClientRect().top;
-      // 文の上端が画面下（115%）→ 45% に来るまでで集まりきる
-      const p = (vh * 1.15 - top) / (vh * 0.7);
+      const block = el.closest(".policy-block");
+      const r = block.getBoundingClientRect();
+      // 画面が止まっている間（ブロックの高さ − 1画面ぶん）の 75% で揃いきる
+      const p = -r.top / ((block.offsetHeight - vh) * 0.75);
       words.forEach((w) => {
         const t = Math.min(Math.max((p - w.rd * 0.35) / 0.65, 0), 1);
         const k = 1 - ease(t);
