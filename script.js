@@ -1,6 +1,9 @@
 // フッターの年号を自動更新
 document.getElementById("year").textContent = new Date().getFullYear();
 
+// 読み込み完了でヒーローの文字をせり上げる
+requestAnimationFrame(() => document.documentElement.classList.add("loaded"));
+
 // スクロールで要素をふわっと表示
 const items = document.querySelectorAll(".reveal");
 if ("IntersectionObserver" in window) {
@@ -16,10 +19,60 @@ if ("IntersectionObserver" in window) {
     { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }
   );
   items.forEach((el, i) => {
-    // 近接する要素は少しずつ遅らせて表示（スタッガー）
     el.style.transitionDelay = `${(i % 4) * 70}ms`;
     io.observe(el);
   });
 } else {
   items.forEach((el) => el.classList.add("in"));
+}
+
+// ステートメント：単語ごとに分割し、スクロール量に合わせて1語ずつ濃くする
+const statement = document.querySelector("[data-words]");
+if (statement) {
+  const wrapWords = (node) => {
+    [...node.childNodes].forEach((child) => {
+      if (child.nodeType === Node.TEXT_NODE) {
+        const frag = document.createDocumentFragment();
+        child.textContent.split(/(\s+)/).forEach((part) => {
+          if (!part) return;
+          if (/^\s+$/.test(part)) {
+            frag.appendChild(document.createTextNode(part));
+          } else {
+            const span = document.createElement("span");
+            span.className = "w";
+            span.textContent = part;
+            frag.appendChild(span);
+          }
+        });
+        child.replaceWith(frag);
+      } else if (child.nodeType === Node.ELEMENT_NODE) {
+        wrapWords(child);
+      }
+    });
+  };
+  wrapWords(statement);
+
+  const words = statement.querySelectorAll(".w");
+  let ticking = false;
+  const update = () => {
+    const rect = statement.getBoundingClientRect();
+    const vh = window.innerHeight;
+    // 文の上端が画面の85%に来たら開始、35%に来たら全語点灯
+    const progress = (vh * 0.85 - rect.top) / (vh * 0.5);
+    const lit = Math.round(Math.min(Math.max(progress, 0), 1) * words.length);
+    words.forEach((w, i) => w.classList.toggle("on", i < lit));
+    ticking = false;
+  };
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        ticking = true;
+        requestAnimationFrame(update);
+      }
+    },
+    { passive: true }
+  );
+  window.addEventListener("resize", update);
+  update();
 }

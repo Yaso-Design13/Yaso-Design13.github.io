@@ -21,7 +21,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -34,243 +34,264 @@
 <body>
   <!-- ===== ヘッダー ===== -->
   <header class="site-header">
-    <nav class="nav container">
-      <a href="#top" class="brand">
-        <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
-          <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
-          <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
-        </svg>
-        <span>Yaso&nbsp;Design</span>
-      </a>
+    <a href="#top" class="brand" aria-label="Yaso Design トップへ">
+      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+      </svg>
+      <span>Yaso Design</span>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="#works">Works</a>
+      <a href="#policy">Policy</a>
+      <a href="#log">Log</a>
+      <a href="#contact">Contact</a>
     </nav>
   </header>
 
   <main id="top">
     <!-- ===== ヒーロー ===== -->
     <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1 class="hero-title reveal">
-            日常に<br />
-            <span class="ul">ポジティブ</span>を<br />
-            ちょっと。
-          </h1>
-          <div class="hero-actions reveal">
-            <a href="#works" class="btn btn-blue" data-umami-event="hero-作品を見る">作品を見る <span class="arr">↓</span></a>
-            <a href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" class="btn btn-outline" data-umami-event="hero-アカウント">
-              <svg class="soc-ico" width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor" /></svg>
-              アカウント
-            </a>
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <img src="images/illust.png" alt="鈴木颯也のイラスト" class="illust" />
-          <!-- 装飾 -->
-          <svg class="deco deco-circles" viewBox="0 0 70 46" aria-hidden="true">
-            <circle cx="20" cy="22" r="18" fill="var(--blue)" />
-            <circle cx="40" cy="30" r="13" fill="var(--lime)" />
-          </svg>
-          <svg class="deco deco-tri" viewBox="0 0 46 24" aria-hidden="true">
-            <polygon points="0,0 22,0 22,22" fill="var(--lime)" />
-            <polygon points="24,0 46,0 46,22" fill="var(--blue)" />
-          </svg>
-          <span class="deco deco-square"></span>
-        </div>
+      <div class="hero-top">
+        <p class="hero-intro reveal">
+          <strong>Yaso Design</strong> — プロダクトデザイナー 鈴木颯也。
+          UI・ブランド・プロダクトを横断して、日常にポジティブをちょっと足すアプリをつくっています。
+        </p>
+        <ul class="hero-meta reveal">
+          <li>Product Designer</li>
+          <li>UI / Branding / AI Coding</li>
+          <li>6 iOS Apps released</li>
+        </ul>
       </div>
 
-      <!-- スクロールする実績バー -->
-      <div class="marquee" aria-hidden="true">
-        <div class="marquee-track">
-          <div class="marquee-group">
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-          </div>
-          <div class="marquee-group">
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-            <span>UI DESIGN</span><span class="sep">✳</span>
-            <span>BRANDING</span><span class="sep">✳</span>
-            <span>UX DESIGN</span><span class="sep">✳</span>
-            <span>AI CODING</span><span class="sep">✳</span>
-            <span>LP DESIGN</span><span class="sep">✳</span>
-          </div>
-        </div>
+      <div class="hero-bottom">
+        <h1 class="hero-title">
+          <span class="line"><span>Yaso</span></span>
+          <span class="line"><span>Design<sup>®</sup></span></span>
+        </h1>
+        <p class="hero-year">© 2026</p>
       </div>
     </section>
 
-    <!-- ===== Works ===== -->
-    <section id="works" class="section works">
-      <div class="container">
-        <div class="works-head reveal">
-          <p class="section-label"><span class="dot"></span> Works</p>
-          <h2 class="section-title">つくってるモノ</h2>
+    <!-- ===== ステートメント（スクロールで1語ずつ濃くなる） ===== -->
+    <section class="statement">
+      <p class="statement-text" data-words>
+        Designing small apps that add a little <em class="hl-lime">positivity</em> to <em class="hl-blue">everyday</em> life.
+      </p>
+      <p class="statement-jp reveal">日常に、ポジティブをちょっと。</p>
+    </section>
+
+    <!-- ===== マーキー ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <div class="marquee-group">
+          <span>UI Design</span><span class="sep"></span>
+          <span>Branding</span><span class="sep"></span>
+          <span>UX Design</span><span class="sep"></span>
+          <span>AI Coding</span><span class="sep"></span>
+          <span>iOS Apps</span><span class="sep"></span>
         </div>
-
-        <div class="works-grid">
-          <a class="work-card reveal" style="--accent: #8fe36a;" href="https://apps.apple.com/jp/app/id6811901999" target="_blank" rel="noopener noreferrer" data-umami-event="work-sticker">
-            <div class="work-thumb">
-              <img src="images/work-sticker.png" alt="sticker アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">sticker</h3>
-              <p class="work-desc">
-                あなたの「好き」をステッカーにして、自由なボードに貼り付けるアプリ。
-                オリジナルステッカーや絵文字で、思いのままに彩れます。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
-
-          <a class="work-card reveal" style="--accent: #4b63f0;" href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" data-umami-event="work-STUBO">
-            <div class="work-thumb">
-              <img src="images/work-stubo.jpg" alt="STUBO アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">STUBO</h3>
-              <p class="work-desc">
-                旅行の予定や思い出を、あなただけのチケットにしてみんなとシェアする旅行アプリ。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
-
-          <a class="work-card reveal" style="--accent: #ff7a3c;" href="https://apps.apple.com/jp/app/pickers-%E3%82%AB%E3%83%A9%E3%83%BC%E6%8E%A2%E3%81%97/id6793430061" target="_blank" rel="noopener noreferrer" data-umami-event="work-PICKERS">
-            <div class="work-thumb">
-              <img src="images/work-pickers.png" alt="PICKERS アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">PICKERS</h3>
-              <p class="work-desc">
-                身の回りにある色を見つけて集めるほど、「ピッカーズ」が育っていく。
-                何気ない景色から色を探す楽しさを、キャラクター育成にのせたアプリ。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
-
-          <a class="work-card reveal" style="--accent: #101014;" href="https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298" target="_blank" rel="noopener noreferrer" data-umami-event="work-さんぽしよ">
-            <div class="work-thumb">
-              <img src="images/work-sanpo.png" alt="さんぽしよ アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">さんぽしよ</h3>
-              <p class="work-desc">
-                ゆるく散歩を楽しむための、お題提案アプリ。「マンホールを撮る」などの
-                小さなお題で、いつもの道に発見を添えます。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
-
-          <a class="work-card reveal" style="--accent: #3a3a3a;" href="https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039" target="_blank" rel="noopener noreferrer" data-umami-event="work-mojimoji">
-            <div class="work-thumb">
-              <img src="images/work-mojimoji.png" alt="mojimoji アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">mojimoji</h3>
-              <p class="work-desc">
-                街中で見つけた文字をあつめて、つなげて言葉にする。
-                日常をタイポグラフィで遊ぶ、収集アプリ。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
-
-          <a class="work-card reveal" style="--accent: #8fce2b;" href="https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455" target="_blank" rel="noopener noreferrer" data-umami-event="work-ROUTON">
-            <div class="work-thumb">
-              <img src="images/work-routon.png" alt="ROUTON アプリアイコン" loading="lazy" />
-            </div>
-            <div class="work-body">
-              <h3 class="work-title">ROUTON</h3>
-              <p class="work-desc">
-                歩いた道が、いきものになる。GPSで描いた軌跡がキャラクターに変化する、
-                さんぽ＆ランニングアプリ。
-              </p>
-              <span class="work-link">App Store で見る ↗</span>
-            </div>
-          </a>
+        <div class="marquee-group">
+          <span>UI Design</span><span class="sep"></span>
+          <span>Branding</span><span class="sep"></span>
+          <span>UX Design</span><span class="sep"></span>
+          <span>AI Coding</span><span class="sep"></span>
+          <span>iOS Apps</span><span class="sep"></span>
         </div>
       </div>
+    </div>
+
+    <!-- ===== Works ===== -->
+    <section id="works" class="section split">
+      <div class="split-side">
+        <div class="sticky">
+          <h2 class="side-title">Works</h2>
+          <p class="side-jp">つくってるモノ</p>
+          <p class="side-count"><span>06</span> Apps</p>
+        </div>
+      </div>
+
+      <ol class="works-list">
+        <li>
+          <a class="work-row" style="--accent: #8fe36a;" href="https://apps.apple.com/jp/app/id6811901999" target="_blank" rel="noopener noreferrer" data-umami-event="work-sticker">
+            <span class="work-no">01</span>
+            <img class="work-icon" src="images/work-sticker.png" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">sticker</span>
+              <span class="work-desc">あなたの「好き」をステッカーにして、自由なボードに貼り付けるアプリ。オリジナルステッカーや絵文字で、思いのままに彩れます。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row" style="--accent: #4b63f0;" href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" data-umami-event="work-STUBO">
+            <span class="work-no">02</span>
+            <img class="work-icon" src="images/work-stubo.jpg" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">STUBO</span>
+              <span class="work-desc">旅行の予定や思い出を、あなただけのチケットにしてみんなとシェアする旅行アプリ。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Travel</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row" style="--accent: #ff7a3c;" href="https://apps.apple.com/jp/app/pickers-%E3%82%AB%E3%83%A9%E3%83%BC%E6%8E%A2%E3%81%97/id6793430061" target="_blank" rel="noopener noreferrer" data-umami-event="work-PICKERS">
+            <span class="work-no">03</span>
+            <img class="work-icon" src="images/work-pickers.png" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">PICKERS</span>
+              <span class="work-desc">身の回りにある色を見つけて集めるほど、「ピッカーズ」が育っていく。色探しの楽しさを、キャラクター育成にのせたアプリ。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Graphics &amp; Design</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row" style="--accent: #8fce2b;" href="https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455" target="_blank" rel="noopener noreferrer" data-umami-event="work-ROUTON">
+            <span class="work-no">04</span>
+            <img class="work-icon" src="images/work-routon.png" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">ROUTON</span>
+              <span class="work-desc">歩いた道が、いきものになる。GPSで描いた軌跡がキャラクターに変化する、さんぽ＆ランニングアプリ。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row" style="--accent: #3a3a3a;" href="https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039" target="_blank" rel="noopener noreferrer" data-umami-event="work-mojimoji">
+            <span class="work-no">05</span>
+            <img class="work-icon" src="images/work-mojimoji.png" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">mojimoji</span>
+              <span class="work-desc">街中で見つけた文字をあつめて、つなげて言葉にする。日常をタイポグラフィで遊ぶ、収集アプリ。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+        <li>
+          <a class="work-row" style="--accent: #101014;" href="https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298" target="_blank" rel="noopener noreferrer" data-umami-event="work-さんぽしよ">
+            <span class="work-no">06</span>
+            <img class="work-icon" src="images/work-sanpo.png" alt="" loading="lazy" width="120" height="120" />
+            <span class="work-main">
+              <span class="work-name">さんぽしよ</span>
+              <span class="work-desc">ゆるく散歩を楽しむための、お題提案アプリ。「マンホールを撮る」などの小さなお題で、いつもの道に発見を添えます。</span>
+            </span>
+            <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
+            <span class="work-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      </ol>
     </section>
 
     <!-- ===== My Policy ===== -->
-    <section id="policy" class="section policy">
-      <div class="container">
-        <p class="section-label reveal"><span class="dot"></span> My Policy</p>
+    <section id="policy" class="section split">
+      <div class="split-side">
+        <div class="sticky">
+          <h2 class="side-title">My Policy</h2>
+          <p class="side-jp">大切にしていること</p>
+        </div>
+      </div>
 
-        <div class="policy-item reveal">
-          <div class="policy-left">
-            <h3 class="policy-word">Visionary</h3>
-            <p class="policy-sub">旗を示し</p>
-          </div>
+      <div class="policy-list">
+        <article class="policy-item reveal">
+          <p class="policy-no">01 —</p>
+          <h3 class="policy-word">Visionary</h3>
+          <p class="policy-sub">旗を示し</p>
           <p class="policy-desc">
             Visionを描き、実現までの道筋を創るデザイナーを目指しています。
             身の回りも見渡してみると煌めくものがあるという価値観のもと「日常にポジティブをちょっと」というvisionを掲げています。
           </p>
-        </div>
-        <div class="policy-item reveal">
-          <div class="policy-left">
-            <h3 class="policy-word">Aesthetically</h3>
-            <p class="policy-sub">美しく</p>
-          </div>
+        </article>
+        <article class="policy-item reveal">
+          <p class="policy-no">02 —</p>
+          <h3 class="policy-word">Aesthetically</h3>
+          <p class="policy-sub">美しく</p>
           <p class="policy-desc">
             美しさを追求し、直感的に心地よい体験を設計します。
             機能と情緒が調和したデザインで、使う人の心を満たす表現を目指しています。
           </p>
-        </div>
-        <div class="policy-item reveal">
-          <div class="policy-left">
-            <h3 class="policy-word">Playfulness</h3>
-            <p class="policy-sub">遊び心を忘れずに</p>
-          </div>
+        </article>
+        <article class="policy-item reveal">
+          <p class="policy-no">03 —</p>
+          <h3 class="policy-word">Playfulness</h3>
+          <p class="policy-sub">遊び心を忘れずに</p>
           <p class="policy-desc">
             遊び心を忘れず、日常に驚きと彩りを添える工夫を凝らします。
             細部へのこだわりを通じて、使う人が笑顔になり、記憶に残るデザインを大切にします。
           </p>
-        </div>
+        </article>
       </div>
     </section>
 
+    <!-- ===== Release Log ===== -->
+    <section id="log" class="section split">
+      <div class="split-side">
+        <div class="sticky">
+          <h2 class="side-title">Release Log</h2>
+          <p class="side-jp">リリースの記録</p>
+        </div>
+      </div>
+
+      <ol class="log-list">
+        <li class="log-row reveal">
+          <time datetime="2026-09-17">2026.09.17</time>
+          <span class="log-name">sticker</span>
+          <span class="log-note">App Store リリース</span>
+        </li>
+        <li class="log-row reveal">
+          <time datetime="2026-08-28">2026.08.28</time>
+          <span class="log-name">STUBO</span>
+          <span class="log-note">App Store リリース</span>
+        </li>
+        <li class="log-row reveal">
+          <time datetime="2026-07-31">2026.07.31</time>
+          <span class="log-name">PICKERS</span>
+          <span class="log-note">App Store リリース</span>
+        </li>
+        <li class="log-row reveal">
+          <time datetime="2026-07-16">2026.07.16</time>
+          <span class="log-name">ROUTON</span>
+          <span class="log-note">App Store リリース</span>
+        </li>
+        <li class="log-row reveal">
+          <time datetime="2026-07-07">2026.07.07</time>
+          <span class="log-name">mojimoji</span>
+          <span class="log-note">App Store リリース</span>
+        </li>
+        <li class="log-row reveal">
+          <time datetime="2026-01-27">2026.01.27</time>
+          <span class="log-name">さんぽしよ</span>
+          <span class="log-note">はじめてのアプリをリリース</span>
+        </li>
+      </ol>
+    </section>
+
+    <!-- ===== Contact ===== -->
+    <section id="contact" class="contact">
+      <p class="contact-label">Contact</p>
+      <a class="contact-big" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="contact-XのDM">
+        <span>Let’s make</span>
+        <span>something <em class="hl-lime">fun.</em></span>
+        <span class="contact-arrow" aria-hidden="true">↗</span>
+      </a>
+      <p class="contact-jp">お仕事のご相談・ご連絡は、X の DM からお気軽にどうぞ。</p>
+    </section>
   </main>
 
   <footer class="site-footer">
-    <div class="container">
-      <p class="footer-contact">
-        お仕事のご相談・ご連絡は、<a href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="footer-XのDM">X の DM</a> からお気軽にどうぞ。
-      </p>
-      <div class="footer-inner">
-        <a href="#top" class="brand">
-          <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
-            <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
-            <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
-          </svg>
-          <span>Yaso&nbsp;Design</span>
-        </a>
-        <p class="copy">© <span id="year"></span> Yaso Design</p>
-      </div>
-    </div>
+    <a href="#top" class="brand">
+      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+      </svg>
+      <span>Yaso Design</span>
+    </a>
+    <a class="footer-x" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="footer-X">X (Twitter) ↗</a>
+    <p class="copy">© <span id="year"></span> Yaso Design</p>
   </footer>
 
   <script src="script.js"></script>
