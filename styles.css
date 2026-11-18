@@ -146,9 +146,9 @@ em { font-style: normal; }
 .hero { position: relative; }
 .hero-stack {
   position: absolute;
-  left: 63%;
-  top: 57%;
-  width: clamp(200px, 22vw, 360px);
+  left: 62%;
+  top: 55%;
+  width: clamp(220px, 29vw, 460px);
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -160,9 +160,9 @@ em { font-style: normal; }
   display: grid;
   place-items: center;
   overflow: hidden;
-  border-radius: 14px;
+  border-radius: 2px;
   background: var(--accent);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06), 0 24px 48px -12px rgba(0, 0, 0, 0.28);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08), 0 18px 40px -18px rgba(0, 0, 0, 0.35);
   translate: var(--x) var(--y);
   rotate: var(--r);
   transition: translate 0.7s var(--ease), rotate 0.7s var(--ease);
@@ -538,7 +538,7 @@ em { font-style: normal; }
   .hero { padding-top: 88px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
   .hero-year { padding-bottom: 0; }
-  .hero-stack { left: 54%; top: 54%; width: 48vw; }
+  .hero-stack { left: 52%; top: 55%; width: 58vw; }
 
   .work-row {
     grid-template-columns: 48px minmax(0, 1fr) 1.2em;
