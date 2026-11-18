@@ -220,13 +220,6 @@ em { font-style: normal; }
   background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 92%, transparent 92%);
 }
 .statement-text .hl-blue .w.on { color: var(--blue); }
-.statement-jp {
-  margin-top: 40px;
-  font-family: var(--font-jp);
-  font-size: clamp(1rem, 1.6vw, 1.25rem);
-  font-weight: 500;
-  color: var(--muted);
-}
 
 /* ===== マーキー ===== */
 .marquee {
