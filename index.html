@@ -4,10 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Yaso Design — Portfolio</title>
-  <meta name="description" content="Yaso Design（鈴木颯也）のポートフォリオ。プロダクトデザイナー。UI・ブランド・プロダクトを横断してデザインしています。" />
+  <meta name="description" content="Yaso Design のポートフォリオ。プロダクトデザイナー。UI・ブランド・プロダクトを横断してデザインしています。" />
 
   <meta property="og:title" content="Yaso Design — Portfolio" />
-  <meta property="og:description" content="プロダクトデザイナー 鈴木颯也のポートフォリオ。" />
+  <meta property="og:description" content="プロダクトデザイナー Yaso Design のポートフォリオ。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yaso-design13.github.io/" />
   <meta property="og:image" content="https://yaso-design13.github.io/images/ogp.png" />
@@ -54,8 +54,8 @@
     <section class="hero">
       <div class="hero-top">
         <p class="hero-intro reveal">
-          <strong>Yaso Design</strong> — プロダクトデザイナー 鈴木颯也。
-          UI・ブランド・プロダクトを横断して、日常にポジティブをちょっと足すアプリをつくっています。
+          <strong>Yaso Design</strong> — 日常に、ポジティブをちょっと。<br />
+          アプリをつくるプロダクトデザイナー。
         </p>
         <ul class="hero-meta reveal">
           <li>Product Designer</li>
@@ -67,10 +67,27 @@
       <div class="hero-bottom">
         <h1 class="hero-title">
           <span class="line"><span>Yaso</span></span>
-          <span class="line"><span>Design<sup>®</sup></span></span>
+          <span class="line"><span>Design</span></span>
         </h1>
         <p class="hero-year">© 2026</p>
       </div>
+
+      <!-- 重なった画像。ホバーで少し広がり、クリックで Works へ。
+           画像が届いたら各 .card の中身を <img src="images/hero/hero-1.jpg" alt=""> に差し替える -->
+      <a class="hero-stack" href="#works" aria-label="Works を見る" data-umami-event="hero-画像">
+        <span class="card" style="--accent: #8fce2b; --x: 34%; --y: 6%; --r: 11deg; --fx: 64%; --fy: 2%; --fr: 18deg;">
+          <img class="card-ph" src="images/work-routon.png" alt="" />
+        </span>
+        <span class="card" style="--accent: #ff7a3c; --x: -30%; --y: 4%; --r: -10deg; --fx: -60%; --fy: 0%; --fr: -17deg;">
+          <img class="card-ph" src="images/work-pickers.png" alt="" />
+        </span>
+        <span class="card" style="--accent: #8fe36a; --x: 12%; --y: -6%; --r: 5deg; --fx: 24%; --fy: -10%; --fr: 8deg;">
+          <img class="card-ph" src="images/work-sticker.png" alt="" />
+        </span>
+        <span class="card" style="--accent: #4b63f0; --x: -6%; --y: 0%; --r: -3deg; --fx: -8%; --fy: -4%; --fr: -4deg;">
+          <img class="card-ph" src="images/work-stubo.jpg" alt="" />
+        </span>
+      </a>
     </section>
 
     <!-- ===== ステートメント（スクロールで1語ずつ濃くなる） ===== -->
