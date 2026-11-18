@@ -46,47 +46,39 @@
   <main>
     <h1 class="visually-hidden">Works</h1>
 
-    <!-- 作品のシーンは works.js のデータから組み立てる -->
-    <section class="wk" id="wk">
-      <div class="wk-stage">
-        <div class="wk-scenes" id="wk-scenes"></div>
-
-        <div class="wk-info">
-          <p class="wk-count"><span id="wk-now">01</span> / <span id="wk-total">06</span></p>
-          <div class="wk-titles" id="wk-titles"></div>
-        </div>
-
-        <ol class="wk-index" id="wk-index" aria-label="作品一覧"></ol>
-
-        <p class="wk-hint" aria-hidden="true">Scroll ↓</p>
+    <!-- 作品のステージ。中身は works.js のデータから組み立てる -->
+    <section class="wk" id="wk" aria-roledescription="carousel" aria-label="作品">
+      <div class="wk-world" id="wk-world">
+        <div class="wk-strip wk-strip--sub" id="wk-sub" aria-hidden="true"></div>
+        <div class="wk-strip wk-strip--main" id="wk-main"></div>
+        <span class="bubble bubble--top" id="wk-b0" aria-hidden="true"></span>
+        <span class="bubble bubble--left" id="wk-b1" aria-hidden="true"></span>
+        <span class="bubble bubble--right" id="wk-b2" aria-hidden="true"></span>
+        <a class="wk-go" id="wk-go" href="#" target="_blank" rel="noopener noreferrer">
+          <span aria-hidden="true">↗</span>
+          <span class="visually-hidden" id="wk-go-label">App Store で見る</span>
+        </a>
+        <div class="wk-title" id="wk-title" aria-live="polite"></div>
       </div>
-      <div class="wk-snaps" id="wk-snaps"></div>
+
+      <p class="wk-count" aria-hidden="true"><span id="wk-now">01</span> / <span id="wk-total">06</span></p>
+      <p class="wk-hint" aria-hidden="true">Scroll</p>
+      <div class="wk-foot">
+        <a href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="works-X">X ↗</a>
+        <span>© <span id="year"></span> Yaso Design</span>
+      </div>
     </section>
 
-    <!-- JSが無効なとき用のシンプルな一覧 -->
-    <noscript>
-      <ul class="wk-fallback">
-        <li><a href="https://apps.apple.com/jp/app/id6811901999">sticker — Photo &amp; Video</a></li>
-        <li><a href="https://apps.apple.com/jp/app/id6801696906">STUBO — Travel</a></li>
-        <li><a href="https://apps.apple.com/jp/app/id6793430061">PICKERS — Graphics &amp; Design</a></li>
-        <li><a href="https://apps.apple.com/jp/app/id6790777455">ROUTON — Health &amp; Fitness</a></li>
-        <li><a href="https://apps.apple.com/jp/app/id6787369039">mojimoji — Photo &amp; Video</a></li>
-        <li><a href="https://apps.apple.com/jp/app/id6758305298">さんぽしよ — Health &amp; Fitness</a></li>
-      </ul>
-    </noscript>
+    <!-- 読み上げ用・JSが無効なとき用の一覧 -->
+    <ul class="wk-list" id="wk-list">
+      <li><a href="https://apps.apple.com/jp/app/id6811901999">sticker — Photo &amp; Video</a></li>
+      <li><a href="https://apps.apple.com/jp/app/id6801696906">STUBO — Travel</a></li>
+      <li><a href="https://apps.apple.com/jp/app/id6793430061">PICKERS — Graphics &amp; Design</a></li>
+      <li><a href="https://apps.apple.com/jp/app/id6790777455">ROUTON — Health &amp; Fitness</a></li>
+      <li><a href="https://apps.apple.com/jp/app/id6787369039">mojimoji — Photo &amp; Video</a></li>
+      <li><a href="https://apps.apple.com/jp/app/id6758305298">さんぽしよ — Health &amp; Fitness</a></li>
+    </ul>
   </main>
-
-  <footer class="site-footer">
-    <a href="index.html" class="brand">
-      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
-        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
-        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
-      </svg>
-      <span>Yaso Design</span>
-    </a>
-    <a class="footer-x" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="footer-X">X (Twitter) ↗</a>
-    <p class="copy">© <span id="year"></span> Yaso Design</p>
-  </footer>
 
   <script src="works.js"></script>
 </body>

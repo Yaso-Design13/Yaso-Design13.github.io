@@ -541,7 +541,8 @@ em { font-style: normal; }
 
 /* =========================================================
    Works ページ（works.html）
-   スクロールに合わせて作品のシーンが入れ替わる
+   画面全体を少し傾け、中央と左のカード列が逆向きに流れる。
+   丸い画像とボタン・タイトルは作品ごとに切り替わる。
    ========================================================= */
 .visually-hidden {
   position: absolute !important;
@@ -550,199 +551,244 @@ em { font-style: normal; }
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
-.nav a[aria-current="page"]::after { transform: scaleX(1); }
 
-.works-page { scroll-snap-type: y mandatory; }
-.works-page .site-footer { scroll-snap-align: end; }
-
-.wk { position: relative; }
-.wk-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  overflow: hidden;
-  background: color-mix(in srgb, var(--wk-accent, var(--paper)) 9%, var(--paper));
-  transition: background 0.6s var(--ease);
+/* 表示中ページのナビは黒いピルに */
+.works-page .nav { gap: 4px; }
+.works-page .nav a { padding: 6px 14px; border-radius: 999px; transition: background 0.3s, color 0.3s; }
+.works-page .nav a::after { display: none; }
+.works-page .nav a:hover { background: #e9e9e5; }
+.works-page .nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+.works-page .site-header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+/* 流れるカードの上でも読めるよう、ロゴ・ナビ・四隅の文字は下地つき */
+.works-page .brand,
+.works-page .nav,
+.wk-count, .wk-hint, .wk-foot {
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 999px;
 }
-.wk-snaps { margin-top: -100svh; }
-.wk-snap { height: 100svh; scroll-snap-align: start; }
+.works-page .brand { padding: 8px 16px 8px 12px; margin-left: -12px; }
+.works-page .nav { padding: 4px; }
+.wk-count, .wk-foot { padding: 6px 14px; }
+.wk-hint { padding: 8px 14px 10px; border-radius: 18px; }
 
-/* シーンと画像たち */
-.wk-scene { position: absolute; inset: 0; --f: 1; }
-.wk-scene.flip { --f: -1; }
-.el {
+/* JSが動くときだけ全画面ステージにする（動かないときは下の一覧が見える） */
+.wk { display: none; }
+.wk-ready body { overflow: hidden; overscroll-behavior: none; }
+.wk-ready .wk {
+  display: block;
+  position: fixed;
+  inset: 0;
+  overflow: hidden;
+  background: var(--paper);
+  touch-action: none;
+}
+.wk-list { padding: 120px var(--gutter); display: grid; gap: 12px; font-size: 1.4rem; font-weight: 600; }
+.wk-ready .wk-list {
+  position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0);
+}
+
+/* 傾いた世界。中心が画面の中心、ここを原点に各パーツを置く */
+.wk-world {
+  --H: min(68svh, 640px);
+  --W: calc(var(--H) * 0.755);
+  --gap: calc(var(--H) * 0.075);
+  --slot: calc(var(--H) + var(--gap));
+  --ease-slide: cubic-bezier(0.7, 0, 0.2, 1);
   position: absolute;
-  left: var(--x);
-  top: var(--y);
+  left: 50%;
+  top: 51%;
+  width: 0;
+  height: 0;
+  rotate: -10deg;
+}
+
+/* カード列 */
+.wk-strip { position: absolute; left: 0; top: 0; }
+.wk-strip--main { z-index: 2; }
+.wk-strip--sub { translate: calc(var(--W) * -1.62) calc(var(--H) * -0.16); z-index: 1; }
+.wk-card {
+  position: absolute;
+  left: calc(var(--W) / -2);
+  top: calc(var(--H) / -2);
+  width: var(--W);
+  height: var(--H);
   display: grid;
   place-items: center;
   overflow: hidden;
+  border-radius: calc(var(--H) * 0.04);
   background: var(--accent);
-  opacity: var(--o, 0);
-  transform:
-    translate(-50%, -50%)
-    translateY(calc(var(--p, 1) * var(--s, 1) * -62svh))
-    rotate(calc(var(--r, 0deg) * var(--f)));
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 26px 50px -16px rgba(0, 0, 0, 0.3);
-  will-change: transform, opacity;
+  translate: 0 calc(var(--off, 0) * var(--slot));
+  transition: translate 1s var(--ease-slide);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, 0.25);
 }
-.wk-scene.flip .el { left: calc(100% - var(--x)); }
-.el > img { width: 100%; height: 100%; }
-.el > img.ph { width: 44%; height: auto; border-radius: 22%; box-shadow: 0 10px 28px rgba(0, 0, 0, 0.2); }
+.wk-card.jump { transition: none; }
+.wk-card > img { width: 100%; height: 100%; }
+.wk-card--sub { background: color-mix(in srgb, var(--accent) 60%, #000); }
+.wk-card:focus-visible { outline: 3px solid var(--blue); outline-offset: 6px; }
+.wk-card.is-active > img:not(.ph) { animation: kenburns 1.2s var(--ease) both; }
+@keyframes kenburns { from { scale: 1.08; } to { scale: 1; } }
 
-.el-main {
-  --x: 50%; --y: 50%; --r: -5deg;
-  width: clamp(220px, 25vw, 380px);
-  aspect-ratio: 3 / 4;
-  border-radius: 16px;
-  z-index: 3;
-}
-.el-mini {
-  --x: 21%; --y: 36%; --r: 8deg;
-  width: clamp(110px, 12vw, 190px);
-  aspect-ratio: 9 / 16;
-  border-radius: 14px;
-  background: color-mix(in srgb, var(--accent) 55%, #000);
-  z-index: 1;
-}
-.el-mini > img.ph { width: 52%; }
-.el-icon {
-  --x: 37%; --y: 21%; --r: -12deg;
-  width: clamp(64px, 7vw, 108px);
-  aspect-ratio: 1;
-  border-radius: 22%;
-  z-index: 4;
-}
-.el-icon > img { object-fit: cover; }
-.el-circle {
-  --x: 73%; --y: 62%;
-  width: clamp(130px, 15vw, 250px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: color-mix(in srgb, var(--accent) 22%, #fff);
-  z-index: 2;
-}
-.el-circle > img.ph { width: 50%; }
+/* 仮表示（アイコン）の大きさ */
+.ph { border-radius: 22%; box-shadow: 0 12px 34px rgba(0, 0, 0, 0.2); }
+.wk-card > .ph--main { width: 42%; height: auto; }
+.wk-card > .ph--sub { width: 34%; height: auto; }
 
-/* 中央カードの App Store ボタン */
-.el-main .go {
+/* 丸い画像（ガラスのふち＋作品色のにじみ） */
+.bubble {
   position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 52px;
-  height: 52px;
+  z-index: 3;
+  width: var(--d);
+  height: var(--d);
+  left: calc(var(--cx) - var(--d) / 2);
+  top: calc(var(--cy) - var(--d) / 2);
+  padding: calc(var(--d) * 0.07);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px) saturate(1.4);
+  -webkit-backdrop-filter: blur(10px) saturate(1.4);
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.9),
+    inset 0 -6px 14px rgba(255, 255, 255, 0.6),
+    0 calc(var(--d) * 0.16) calc(var(--d) * 0.3) calc(var(--d) * -0.08) color-mix(in srgb, var(--accent) 55%, transparent);
+  transition: box-shadow 0.8s var(--ease);
+}
+.bubble--top   { --d: calc(var(--H) * 0.35); --cx: calc(var(--W) * -0.64); --cy: calc(var(--H) * -0.42); }
+.bubble--left  { --d: calc(var(--H) * 0.23); --cx: calc(var(--W) * -0.92); --cy: calc(var(--H) * 0.16); }
+.bubble--right { --d: calc(var(--H) * 0.45); --cx: calc(var(--W) * 1.05);  --cy: calc(var(--H) * 0.36); }
+.bubble-in {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.bubble-layer {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: color-mix(in srgb, var(--accent) 22%, #fff);
+  opacity: 0;
+  scale: 1.25;
+  transition: opacity 0.6s var(--ease), scale 1s var(--ease);
+}
+.bubble-layer.on { opacity: 1; scale: 1; transition-delay: var(--delay, 0.15s); }
+.bubble--left .bubble-layer.on { --delay: 0.25s; }
+.bubble--right .bubble-layer.on { --delay: 0.35s; }
+.bubble-layer > img { width: 100%; height: 100%; }
+.bubble-layer > .ph--b0 { width: 100%; height: 100%; border-radius: 0; box-shadow: none; object-fit: cover; }
+.bubble-layer > .ph--b1 { width: 56%; height: auto; }
+.bubble-layer > .ph--b2 { width: 48%; height: auto; }
+
+/* カード右端の丸ボタン */
+.wk-go {
+  --d: calc(var(--H) * 0.17);
+  position: absolute;
+  z-index: 4;
+  width: var(--d);
+  height: var(--d);
+  left: calc(var(--W) * 0.4 - var(--d) / 2);
+  top: calc(var(--H) * -0.06 - var(--d) / 2);
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--lime);
-  color: var(--ink);
-  font-size: 1.3rem;
+  background: color-mix(in srgb, var(--accent) 72%, #000);
+  border: calc(var(--d) * 0.06) solid #fff;
+  color: #fff;
+  font-size: calc(var(--d) * 0.32);
   font-weight: 600;
-  transition: transform 0.4s var(--ease);
+  rotate: 10deg;
+  box-shadow: 0 14px 30px -10px color-mix(in srgb, var(--accent) 70%, transparent);
+  transition: background 0.6s var(--ease), color 0.6s, scale 0.4s var(--ease);
 }
-.el-main:hover .go { transform: scale(1.12) rotate(45deg); }
-.el-main:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
+.wk-go:hover { scale: 1.1; }
+.wk-go:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 
-/* 左下：番号・名前・カテゴリ */
-.wk-info {
-  position: absolute;
-  left: var(--gutter);
-  bottom: var(--gutter);
-  z-index: 5;
-  pointer-events: none;
-}
-.wk-count {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: var(--muted);
-  font-variant-numeric: tabular-nums;
-}
-.wk-count span:first-child { color: var(--ink); }
-.wk-titles { position: relative; height: clamp(5.4rem, 11vw, 10rem); margin-top: 8px; }
+/* 縦書きタイトル */
 .wk-title {
   position: absolute;
-  left: 0;
-  bottom: 0;
+  z-index: 4;
+  left: calc(var(--W) * 0.62);
+  top: calc(var(--H) * -0.46);
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 12px;
-  opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.5s var(--ease), transform 0.6s var(--ease);
+  flex-direction: row-reverse;
+  gap: calc(var(--H) * 0.02);
+  writing-mode: vertical-rl;
 }
-.wk-title.on { opacity: 1; transform: none; }
 .wk-name {
-  font-size: clamp(3rem, 8vw, 7.4rem);
+  font-size: calc(var(--H) * 0.085);
   font-weight: 600;
-  line-height: 0.9;
-  letter-spacing: -0.055em;
+  letter-spacing: 0.02em;
+  line-height: 1;
   white-space: nowrap;
 }
-.wk-title .pill { background: rgba(255, 255, 255, 0.8); }
-
-/* 右：目次 */
-.wk-index {
-  position: absolute;
-  right: var(--gutter);
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 5;
-  display: grid;
-  gap: 6px;
-  text-align: right;
+.wk-name .ch {
+  display: inline-block;
+  animation: ch-in 0.7s var(--ease) both;
+  animation-delay: calc(0.35s + var(--i) * 0.04s);
 }
-.wk-index button {
-  font: inherit;
-  font-size: 0.85rem;
-  font-weight: 600;
+@keyframes ch-in { from { opacity: 0; transform: translateY(-0.6em); } to { opacity: 1; transform: none; } }
+.wk-cat {
+  font-size: calc(var(--H) * 0.02);
+  font-weight: 500;
   color: var(--muted);
-  background: none;
-  border: 0;
-  cursor: pointer;
-  display: inline-flex;
-  gap: 10px;
-  align-items: baseline;
-  transition: color 0.3s;
-}
-.wk-index button span { font-size: 0.7rem; font-variant-numeric: tabular-nums; }
-.wk-index button:hover,
-.wk-index button.on { color: var(--ink); }
-.wk-index button.on::before {
-  content: "";
-  width: 18px;
-  height: 1.5px;
-  background: currentColor;
-  align-self: center;
+  white-space: nowrap;
+  padding-top: calc(var(--H) * 0.01);
+  animation: ch-in 0.7s var(--ease) 0.6s both;
 }
 
-.wk-hint {
+/* 画面の四隅 */
+.wk-count, .wk-hint, .wk-foot {
   position: absolute;
-  right: var(--gutter);
+  z-index: 5;
   bottom: var(--gutter);
-  z-index: 5;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
-  color: var(--muted);
+}
+.wk-count { left: var(--gutter); font-variant-numeric: tabular-nums; color: var(--muted); }
+.wk-count span:first-child { color: var(--ink); }
+.wk-hint { left: 50%; translate: -50% 0; color: var(--muted); letter-spacing: 0.08em; }
+.wk-hint::after {
+  content: "";
+  display: block;
+  width: 1px;
+  height: 28px;
+  margin: 8px auto 0;
+  background: currentColor;
+  transform-origin: top;
+  animation: hint 1.8s var(--ease) infinite;
+}
+@keyframes hint { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
+.wk-foot { right: var(--gutter); display: flex; gap: 18px; color: var(--muted); }
+.wk-foot a { color: var(--ink); }
+
+/* 読み込み時：世界ごとふわっと */
+.wk-world { opacity: 0; scale: 0.94; transition: opacity 1s var(--ease), scale 1.4s var(--ease); }
+.loaded .wk-world { opacity: 1; scale: 1; }
+
+/* タブレット */
+@media (max-width: 1000px) {
+  .wk-world { --H: min(60svh, 82vw); }
 }
 
-.wk-fallback { padding: 120px var(--gutter); display: grid; gap: 12px; font-size: 1.4rem; font-weight: 600; }
-
-/* 読み込み時：シーンがふわっと入る */
-.js .wk-scenes { opacity: 0; transform: translateY(40px); transition: opacity 0.9s var(--ease), transform 1.1s var(--ease); }
-.js.loaded .wk-scenes { opacity: 1; transform: none; }
-
+/* スマホ：縦長画面向けに配置を詰める */
 @media (max-width: 640px) {
-  .el-main { --y: 43%; width: 58vw; }
-  .el-mini { --x: 15%; --y: 24%; width: 25vw; }
-  .el-icon { --x: 74%; --y: 19%; width: 15vw; }
-  .el-circle { --x: 80%; --y: 63%; width: 32vw; }
-  .el-main .go { width: 42px; height: 42px; right: 12px; bottom: 12px; }
-  .wk-index { display: none; }
+  .wk-world { --H: min(50svh, 92vw); left: 43%; top: 48%; rotate: -8deg; }
+  .wk-strip--sub { translate: calc(var(--W) * -1.5) calc(var(--H) * -0.16); }
+  .bubble--top   { --d: calc(var(--H) * 0.3);  --cx: calc(var(--W) * -0.42); --cy: calc(var(--H) * -0.5); }
+  .bubble--left  { --d: calc(var(--H) * 0.2);  --cx: calc(var(--W) * -0.56); --cy: calc(var(--H) * 0.34); }
+  .bubble--right { --d: calc(var(--H) * 0.34); --cx: calc(var(--W) * 0.5);   --cy: calc(var(--H) * 0.5); }
+  .wk-go { left: calc(var(--W) * 0.5 - var(--d) / 2); }
+  .wk-title { left: calc(var(--W) * 0.58); top: calc(var(--H) * -0.5); }
+  .wk-name { font-size: calc(var(--H) * 0.075); }
+  .wk-cat { font-size: 0.68rem; }
   .wk-hint { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .works-page { scroll-snap-type: none; }
-  .js .wk-scenes { opacity: 1; transform: none; transition: none; }
+  .wk-card, .bubble-layer, .wk-world { transition-duration: 0.01s; }
+  .wk-name .ch, .wk-cat, .wk-card.is-active > img { animation: none; }
 }
