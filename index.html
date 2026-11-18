@@ -42,7 +42,7 @@
       <span>Yaso Design</span>
     </a>
     <nav class="nav" aria-label="メインメニュー">
-      <a href="#works">Works</a>
+      <a href="works.html">Works</a>
       <a href="#policy">Policy</a>
       <a href="#log">Log</a>
       <a href="#contact">Contact</a>
@@ -74,7 +74,7 @@
 
       <!-- 重なった画像。ホバーで少し広がり、クリックで Works へ。
            画像が届いたら各 .card の中身を <img src="images/hero/hero-1.jpg" alt=""> に差し替える -->
-      <a class="hero-stack" href="#works" aria-label="Works を見る" data-umami-event="hero-画像">
+      <a class="hero-stack" href="works.html" aria-label="Works を見る" data-umami-event="hero-画像">
         <span class="card" style="--accent: #8fce2b; --x: 34%; --y: 6%; --r: 11deg; --fx: 64%; --fy: 2%; --fr: 18deg;">
           <img class="card-ph" src="images/work-routon.png" alt="" />
         </span>
@@ -128,80 +128,65 @@
         </div>
       </div>
 
-      <ol class="works-list">
-        <li>
-          <a class="work-row" style="--accent: #8fe36a;" href="https://apps.apple.com/jp/app/id6811901999" target="_blank" rel="noopener noreferrer" data-umami-event="work-sticker">
-            <span class="work-no">01</span>
-            <img class="work-icon" src="images/work-sticker.png" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+      <div class="works-wrap">
+        <ol class="works-list">
+          <li>
+            <a class="work-row" style="--accent: #8fe36a;" href="works.html#sticker" data-umami-event="top-work-sticker">
+              <span class="work-no">01</span>
+              <img class="work-icon" src="images/work-sticker.png" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">sticker</span>
-              <span class="work-desc">あなたの「好き」をステッカーにして、自由なボードに貼り付けるアプリ。オリジナルステッカーや絵文字で、思いのままに彩れます。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-row" style="--accent: #4b63f0;" href="https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906" target="_blank" rel="noopener noreferrer" data-umami-event="work-STUBO">
-            <span class="work-no">02</span>
-            <img class="work-icon" src="images/work-stubo.jpg" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+              <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" style="--accent: #4b63f0;" href="works.html#stubo" data-umami-event="top-work-STUBO">
+              <span class="work-no">02</span>
+              <img class="work-icon" src="images/work-stubo.jpg" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">STUBO</span>
-              <span class="work-desc">旅行の予定や思い出を、あなただけのチケットにしてみんなとシェアする旅行アプリ。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Travel</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-row" style="--accent: #ff7a3c;" href="https://apps.apple.com/jp/app/pickers-%E3%82%AB%E3%83%A9%E3%83%BC%E6%8E%A2%E3%81%97/id6793430061" target="_blank" rel="noopener noreferrer" data-umami-event="work-PICKERS">
-            <span class="work-no">03</span>
-            <img class="work-icon" src="images/work-pickers.png" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+              <span class="work-tags"><span class="pill">Travel</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" style="--accent: #ff7a3c;" href="works.html#pickers" data-umami-event="top-work-PICKERS">
+              <span class="work-no">03</span>
+              <img class="work-icon" src="images/work-pickers.png" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">PICKERS</span>
-              <span class="work-desc">身の回りにある色を見つけて集めるほど、「ピッカーズ」が育っていく。色探しの楽しさを、キャラクター育成にのせたアプリ。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Graphics &amp; Design</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-row" style="--accent: #8fce2b;" href="https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455" target="_blank" rel="noopener noreferrer" data-umami-event="work-ROUTON">
-            <span class="work-no">04</span>
-            <img class="work-icon" src="images/work-routon.png" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+              <span class="work-tags"><span class="pill">Graphics &amp; Design</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" style="--accent: #8fce2b;" href="works.html#routon" data-umami-event="top-work-ROUTON">
+              <span class="work-no">04</span>
+              <img class="work-icon" src="images/work-routon.png" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">ROUTON</span>
-              <span class="work-desc">歩いた道が、いきものになる。GPSで描いた軌跡がキャラクターに変化する、さんぽ＆ランニングアプリ。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-row" style="--accent: #3a3a3a;" href="https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039" target="_blank" rel="noopener noreferrer" data-umami-event="work-mojimoji">
-            <span class="work-no">05</span>
-            <img class="work-icon" src="images/work-mojimoji.png" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+              <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" style="--accent: #3a3a3a;" href="works.html#mojimoji" data-umami-event="top-work-mojimoji">
+              <span class="work-no">05</span>
+              <img class="work-icon" src="images/work-mojimoji.png" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">mojimoji</span>
-              <span class="work-desc">街中で見つけた文字をあつめて、つなげて言葉にする。日常をタイポグラフィで遊ぶ、収集アプリ。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-        <li>
-          <a class="work-row" style="--accent: #101014;" href="https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298" target="_blank" rel="noopener noreferrer" data-umami-event="work-さんぽしよ">
-            <span class="work-no">06</span>
-            <img class="work-icon" src="images/work-sanpo.png" alt="" loading="lazy" width="120" height="120" />
-            <span class="work-main">
+              <span class="work-tags"><span class="pill">Photo &amp; Video</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+          <li>
+            <a class="work-row" style="--accent: #101014;" href="works.html#sanpo" data-umami-event="top-work-さんぽしよ">
+              <span class="work-no">06</span>
+              <img class="work-icon" src="images/work-sanpo.png" alt="" loading="lazy" width="120" height="120" />
               <span class="work-name">さんぽしよ</span>
-              <span class="work-desc">ゆるく散歩を楽しむための、お題提案アプリ。「マンホールを撮る」などの小さなお題で、いつもの道に発見を添えます。</span>
-            </span>
-            <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
-            <span class="work-arrow" aria-hidden="true">↗</span>
-          </a>
-        </li>
-      </ol>
+              <span class="work-tags"><span class="pill">Health &amp; Fitness</span></span>
+              <span class="work-arrow" aria-hidden="true">→</span>
+            </a>
+          </li>
+        </ol>
+        <a class="works-more" href="works.html" data-umami-event="top-works-すべて見る">See all works <span aria-hidden="true">→</span></a>
+      </div>
     </section>
 
     <!-- ===== My Policy ===== -->

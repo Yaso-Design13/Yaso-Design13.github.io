@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja" class="works-page">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Works — Yaso Design</title>
+  <meta name="description" content="Yaso Design がつくった iOS アプリの一覧。" />
+
+  <meta property="og:title" content="Works — Yaso Design" />
+  <meta property="og:description" content="Yaso Design がつくった iOS アプリの一覧。" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://yaso-design13.github.io/works.html" />
+  <meta property="og:image" content="https://yaso-design13.github.io/images/ogp.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://yaso-design13.github.io/images/ogp.png" />
+
+  <link rel="icon" type="image/png" href="images/favicon.png" />
+  <link rel="apple-touch-icon" href="images/favicon.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="2fbafd78-92d8-40ac-81d7-92cc947493ab"></script>
+  <script>document.documentElement.className += " js";</script>
+</head>
+<body>
+  <header class="site-header">
+    <a href="index.html" class="brand" aria-label="Yaso Design トップへ">
+      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+      </svg>
+      <span>Yaso Design</span>
+    </a>
+    <nav class="nav" aria-label="メインメニュー">
+      <a href="works.html" aria-current="page">Works</a>
+      <a href="index.html#policy">Policy</a>
+      <a href="index.html#log">Log</a>
+      <a href="index.html#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 class="visually-hidden">Works</h1>
+
+    <!-- 作品のシーンは works.js のデータから組み立てる -->
+    <section class="wk" id="wk">
+      <div class="wk-stage">
+        <div class="wk-scenes" id="wk-scenes"></div>
+
+        <div class="wk-info">
+          <p class="wk-count"><span id="wk-now">01</span> / <span id="wk-total">06</span></p>
+          <div class="wk-titles" id="wk-titles"></div>
+        </div>
+
+        <ol class="wk-index" id="wk-index" aria-label="作品一覧"></ol>
+
+        <p class="wk-hint" aria-hidden="true">Scroll ↓</p>
+      </div>
+      <div class="wk-snaps" id="wk-snaps"></div>
+    </section>
+
+    <!-- JSが無効なとき用のシンプルな一覧 -->
+    <noscript>
+      <ul class="wk-fallback">
+        <li><a href="https://apps.apple.com/jp/app/id6811901999">sticker — Photo &amp; Video</a></li>
+        <li><a href="https://apps.apple.com/jp/app/id6801696906">STUBO — Travel</a></li>
+        <li><a href="https://apps.apple.com/jp/app/id6793430061">PICKERS — Graphics &amp; Design</a></li>
+        <li><a href="https://apps.apple.com/jp/app/id6790777455">ROUTON — Health &amp; Fitness</a></li>
+        <li><a href="https://apps.apple.com/jp/app/id6787369039">mojimoji — Photo &amp; Video</a></li>
+        <li><a href="https://apps.apple.com/jp/app/id6758305298">さんぽしよ — Health &amp; Fitness</a></li>
+      </ul>
+    </noscript>
+  </main>
+
+  <footer class="site-footer">
+    <a href="index.html" class="brand">
+      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
+        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
+        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
+      </svg>
+      <span>Yaso Design</span>
+    </a>
+    <a class="footer-x" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="footer-X">X (Twitter) ↗</a>
+    <p class="copy">© <span id="year"></span> Yaso Design</p>
+  </footer>
+
+  <script src="works.js"></script>
+</body>
+</html>
