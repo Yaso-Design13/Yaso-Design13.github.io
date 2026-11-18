@@ -103,12 +103,17 @@ em { font-style: normal; }
   gap: 40px;
 }
 .hero-intro {
-  max-width: 30em;
-  font-family: var(--font-jp);
-  font-size: 0.95rem;
-  line-height: 1.9;
+  max-width: 19em;
+  font-family: var(--font-en), var(--font-jp);
+  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.6;
+  letter-spacing: -0.005em;
+  color: var(--ink);
 }
-.hero-intro strong { font-family: var(--font-en); }
+.hero-intro strong { font-weight: 700; letter-spacing: -0.02em; }
+/* 日本語を文節の切れ目で折り返す */
+.nb { display: inline-block; }
 .hero-meta {
   text-align: right;
   font-size: 0.85rem;
