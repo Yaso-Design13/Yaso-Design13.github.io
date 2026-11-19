@@ -267,9 +267,6 @@ em { font-style: normal; }
   line-height: 1.12;
   letter-spacing: -0.035em;
 }
-.policy-text .kw { font-style: normal; }
-.policy-text .kw-blue { color: var(--blue); }
-.policy-text .kw-lime { background: linear-gradient(transparent 60%, var(--lime) 60%, var(--lime) 92%, transparent 92%); }
 
 @media (max-width: 900px) {
   .policy { grid-template-columns: 1fr; }
