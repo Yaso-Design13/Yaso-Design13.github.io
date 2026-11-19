@@ -5,7 +5,8 @@
 //    main    … 中央の大きなカード（縦長 3:4）
 //    sub     … 左端を流れるカード（縦長 3:4）。なければ main を使う
 //    bubbles … 右下の丸い画像（正方形 1:1）。[左上, 左下, 右下] の3番目だけ使う
-//  crop … 左下の丸に、メインビジュアルのどこを切り抜くか [横%, 縦%, 拡大率]
+//  crop  … 左下の丸に、メインビジュアルのどこを切り抜くか [横%, 縦%, 拡大率]
+//  crop2 … 右下の丸に切り抜く場所（なければ bubbles の3番目を使う）
 //  左上の角丸四角には、いつも icon（アプリアイコン）が入る
 // =========================================================
 const WORKS = [
@@ -17,6 +18,7 @@ const WORKS = [
     icon: "images/work-sticker.png",
     url: "https://apps.apple.com/jp/app/id6811901999",
     crop: [72, 79, 2.6],
+    crop2: [70, 24, 3],
     images: { main: "images/visual/sticker.jpg" },
   },
   {
@@ -41,6 +43,7 @@ const WORKS = [
     icon: "images/work-routon.png",
     url: "https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455",
     crop: [79, 13, 3],
+    crop2: [62, 30, 2.2],
     images: { main: "images/visual/routon.jpg" },
   },
   {
@@ -51,6 +54,7 @@ const WORKS = [
     icon: "images/work-mojimoji.png",
     url: "https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039",
     crop: [82, 31, 3.2],
+    crop2: [49, 22, 3],
     images: { main: "images/visual/mojimoji.jpg" },
   },
   {
@@ -61,6 +65,7 @@ const WORKS = [
     icon: "images/work-sanpo.png",
     url: "https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298",
     crop: [50, 72, 3],
+    crop2: [77, 78, 3],
     images: { main: "images/visual/sanpo.jpg" },
   },
 ];
@@ -117,9 +122,9 @@ const bubbles = [0, 1, 2].map((b) => {
     if (b === 0) {
       // 左上：角丸四角のアプリアイコン
       layer.innerHTML = `<img src="${w.icon}" alt="" loading="lazy" style="object-fit:cover" />`;
-    } else if (b === 1 && w.images.main && w.crop) {
-      // 左下：メインビジュアルの一部を拡大して切り抜く（指定した点が円の中心に来る）
-      const [x, y, z] = w.crop;
+    } else if (w.images.main && ((b === 1 && w.crop) || (b === 2 && w.crop2))) {
+      // 左下・右下：メインビジュアルの一部を拡大して切り抜く（指定した点が円の中心に来る）
+      const [x, y, z] = b === 1 ? w.crop : w.crop2;
       layer.innerHTML = `<img class="crop" src="${w.images.main}" alt="" loading="lazy"
         style="width:${z * 100}%; translate:-${x}% -${y}%" />`;
     } else {
