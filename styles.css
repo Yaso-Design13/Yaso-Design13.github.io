@@ -508,7 +508,7 @@ em { font-style: normal; }
 .wk-world {
   --H: min(68svh, 640px);
   --W: calc(var(--H) * 0.755);
-  --gap: calc(var(--H) * 0.075);
+  --gap: calc(var(--H) * 0.14); /* 縦に並ぶカード同士の間隔 */
   --slot: calc(var(--H) + var(--gap));
   --ease-slide: cubic-bezier(0.7, 0, 0.2, 1);
   position: absolute;
