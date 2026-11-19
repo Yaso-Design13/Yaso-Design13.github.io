@@ -70,14 +70,11 @@ const WORKS = [
   },
 ];
 
-document.getElementById("year").textContent = new Date().getFullYear();
 document.documentElement.classList.add("wk-ready");
 
 const n = WORKS.length;
 const SUB_SHIFT = 2; // 左の列を中央から何作品ずらすか
-const pad = (v) => String(v).padStart(2, "0");
 const $ = (id) => document.getElementById(id);
-$("wk-total").textContent = pad(n);
 
 // 画像があれば <img>、なければアイコンを使った仮表示
 const media = (src, w, kind) => {
@@ -203,7 +200,6 @@ const render = () => {
     <h2 class="wk-name"><span class="visually-hidden">${w.name}</span><span aria-hidden="true">${letters}</span></h2>
     <p class="wk-cat">${w.category}</p>`;
 
-  $("wk-now").textContent = pad(active + 1);
   if (location.hash !== `#${w.id}`) history.replaceState(null, "", `#${w.id}`);
 };
 

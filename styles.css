@@ -366,10 +366,10 @@ em { font-style: normal; }
 .works-page .nav a:hover { background: #f0f0f0; }
 .works-page .nav a[aria-current="page"] { background: var(--ink); color: var(--paper); }
 .works-page .site-header { background: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
-/* 流れるカードの上でも読めるよう、ロゴ・ナビ・四隅の文字は下地つき */
+/* 流れるカードの上でも読めるよう、ロゴ・ナビ・下のヒントは下地つき */
 .works-page .brand,
 .works-page .nav,
-.wk-count, .wk-hint, .wk-foot {
+.wk-hint {
   background: color-mix(in srgb, var(--paper) 88%, transparent);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -377,7 +377,6 @@ em { font-style: normal; }
 }
 .works-page .brand { padding: 8px 16px 8px 12px; margin-left: -12px; }
 .works-page .nav { padding: 4px; }
-.wk-count, .wk-foot { padding: 6px 14px; }
 .wk-hint { padding: 8px 14px 10px; border-radius: 18px; }
 
 /* JSが動くときだけ全画面ステージにする（動かないときは下の一覧が見える） */
@@ -589,16 +588,14 @@ em { font-style: normal; }
   animation: ch-in 0.7s var(--ease) 0.6s both;
 }
 
-/* 画面の四隅 */
-.wk-count, .wk-hint, .wk-foot {
+/* 画面下のスクロールのヒント */
+.wk-hint {
   position: absolute;
   z-index: 5;
   bottom: var(--gutter);
   font-size: 0.78rem;
   font-weight: 600;
 }
-.wk-count { left: var(--gutter); font-variant-numeric: tabular-nums; color: var(--muted); }
-.wk-count span:first-child { color: var(--ink); }
 .wk-hint { left: 50%; translate: -50% 0; color: var(--muted); letter-spacing: 0.08em; }
 .wk-hint::after {
   content: "";
@@ -611,8 +608,6 @@ em { font-style: normal; }
   animation: hint 1.8s var(--ease) infinite;
 }
 @keyframes hint { 0% { transform: scaleY(0); } 50% { transform: scaleY(1); transform-origin: top; } 51% { transform-origin: bottom; } 100% { transform: scaleY(0); transform-origin: bottom; } }
-.wk-foot { right: var(--gutter); display: flex; gap: 18px; color: var(--muted); }
-.wk-foot a { color: var(--ink); }
 
 /* 読み込み時：世界ごとふわっと */
 .wk-world { opacity: 0; scale: 0.94; transition: opacity 1s var(--ease), scale 1.4s var(--ease); }
