@@ -200,7 +200,6 @@ em { font-style: normal; }
 /* ===== ステートメント ===== */
 .statement {
   padding: clamp(96px, 18vh, 200px) var(--gutter);
-  border-top: 1px solid var(--line);
 }
 .statement-text {
   max-width: 15em;
@@ -221,8 +220,6 @@ em { font-style: normal; }
 
 /* ===== セクション共通 ===== */
 .section { padding: clamp(80px, 14vh, 160px) var(--gutter); }
-.section + .section,
-.statement + .section { border-top: 1px solid var(--line); }
 .side-title {
   font-size: clamp(1.6rem, 2.6vw, 2.4rem);
   font-weight: 600;
@@ -314,7 +311,6 @@ em { font-style: normal; }
   padding: 28px var(--gutter);
   background: var(--ink);
   color: var(--paper);
-  border-top: 1px solid #26262a;
 }
 .footer-x { font-size: 0.85rem; font-weight: 600; }
 .copy { font-size: 0.8rem; color: #8c8c92; }
