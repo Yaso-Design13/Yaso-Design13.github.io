@@ -3,7 +3,7 @@
 //  作品を追加・差し替えるときは、下の WORKS を編集するだけでOK。
 //  images に画像パスを入れると、仮表示（アイコン）から本番画像に切り替わる。
 //    main    … 中央の大きなカード（縦長 3:4）
-//    sub     … 左端を流れるカード（縦長 3:4）
+//    sub     … 左端を流れるカード（縦長 3:4）。なければ main を使う
 //    bubbles … 丸く切り抜く画像3枚 [左上・左下・右下]（正方形 1:1）
 // =========================================================
 const WORKS = [
@@ -14,7 +14,7 @@ const WORKS = [
     accent: "#8fe36a",
     icon: "images/work-sticker.png",
     url: "https://apps.apple.com/jp/app/id6811901999",
-    images: {},
+    images: { main: "images/visual/sticker.jpg" },
   },
   {
     id: "stubo",
@@ -30,22 +30,13 @@ const WORKS = [
     },
   },
   {
-    id: "pickers",
-    name: "PICKERS",
-    category: "Graphics & Design",
-    accent: "#ff7a3c",
-    icon: "images/work-pickers.png",
-    url: "https://apps.apple.com/jp/app/pickers-%E3%82%AB%E3%83%A9%E3%83%BC%E6%8E%A2%E3%81%97/id6793430061",
-    images: {},
-  },
-  {
     id: "routon",
     name: "ROUTON",
     category: "Health & Fitness",
     accent: "#8fce2b",
     icon: "images/work-routon.png",
     url: "https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455",
-    images: {},
+    images: { main: "images/visual/routon.jpg" },
   },
   {
     id: "mojimoji",
@@ -54,7 +45,7 @@ const WORKS = [
     accent: "#3a3a3a",
     icon: "images/work-mojimoji.png",
     url: "https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039",
-    images: {},
+    images: { main: "images/visual/mojimoji.jpg" },
   },
   {
     id: "sanpo",
@@ -63,7 +54,7 @@ const WORKS = [
     accent: "#101014",
     icon: "images/work-sanpo.png",
     url: "https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298",
-    images: {},
+    images: { main: "images/visual/sanpo.jpg" },
   },
 ];
 
@@ -102,7 +93,7 @@ const subCards = WORKS.map((w) => {
   const d = document.createElement("span");
   d.className = "wk-card wk-card--sub";
   d.style.setProperty("--accent", w.accent);
-  d.innerHTML = media(w.images.sub, w, "sub");
+  d.innerHTML = media(w.images.sub || w.images.main, w, "sub"); // sub がなければメインビジュアルを流用
   $("wk-sub").appendChild(d);
   return d;
 });
