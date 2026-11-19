@@ -217,6 +217,14 @@ em { font-style: normal; }
   background: linear-gradient(transparent 62%, var(--lime) 62%, var(--lime) 92%, transparent 92%);
 }
 .statement-text .hl-blue .w.on { color: var(--blue); }
+.statement-jp {
+  margin-top: clamp(20px, 3vh, 32px);
+  font-family: var(--font-jp);
+  font-size: clamp(1.05rem, 1.8vw, 1.5rem);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
 
 /* ===== セクション共通 ===== */
 .section { padding: clamp(80px, 14vh, 160px) var(--gutter); }
