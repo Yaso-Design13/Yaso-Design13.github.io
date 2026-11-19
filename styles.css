@@ -117,13 +117,6 @@ em { font-style: normal; }
 .hero-intro strong { font-weight: 700; letter-spacing: -0.02em; }
 /* 日本語を文節の切れ目で折り返す */
 .nb { display: inline-block; }
-.hero-meta {
-  font-size: clamp(1.05rem, 1.55vw, 1.3rem);
-  font-weight: 500;
-  line-height: 1.6;
-  letter-spacing: -0.005em;
-  color: var(--ink);
-}
 
 .hero-bottom {
   display: flex;
