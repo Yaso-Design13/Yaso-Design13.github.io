@@ -74,6 +74,7 @@ document.getElementById("year").textContent = new Date().getFullYear();
 document.documentElement.classList.add("wk-ready");
 
 const n = WORKS.length;
+const SUB_SHIFT = 2; // 左の列を中央から何作品ずらすか
 const pad = (v) => String(v).padStart(2, "0");
 const $ = (id) => document.getElementById(id);
 $("wk-total").textContent = pad(n);
@@ -178,7 +179,8 @@ const place = (card, off) => {
 const render = () => {
   const w = WORKS[active];
   mainCards.forEach((c, i) => place(c, wrap(i - active)));
-  subCards.forEach((c, i) => place(c, -wrap(i - active)));
+  // 左の列は中央と同じ作品にならないよう、2作品ぶんずらして逆向きに流す
+  subCards.forEach((c, i) => place(c, -wrap(i - active - SUB_SHIFT)));
   mainCards.forEach((c, i) => c.setAttribute("tabindex", i === active ? "0" : "-1"));
 
   bubbles.forEach(({ el, layers }) => {
