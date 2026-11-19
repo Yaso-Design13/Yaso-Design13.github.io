@@ -270,14 +270,6 @@ em { font-style: normal; }
 .policy-text .kw { font-style: normal; }
 .policy-text .kw-blue { color: var(--blue); }
 .policy-text .kw-lime { background: linear-gradient(transparent 60%, var(--lime) 60%, var(--lime) 92%, transparent 92%); }
-.policy-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: clamp(28px, 4vh, 48px);
-  font-size: 1rem;
-}
-.policy-tags .pill { padding: 9px 18px; font-size: 0.8rem; }
 
 @media (max-width: 900px) {
   .policy { grid-template-columns: 1fr; }
