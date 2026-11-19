@@ -97,10 +97,8 @@ em { font-style: normal; }
   justify-content: space-between;
   padding: 104px var(--gutter) var(--gutter);
 }
-/* 左上に紹介文と肩書きをまとめる（カードより手前に表示） */
+/* 左上に紹介文と肩書きをまとめる（重なったときはカードが上） */
 .hero-top {
-  position: relative;
-  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
