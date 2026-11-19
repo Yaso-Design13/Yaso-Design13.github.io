@@ -76,39 +76,3 @@ if (statement) {
   window.addEventListener("resize", update);
   update();
 }
-
-// Release Log：画面の真ん中にあるリリースに合わせて、右の大きな数字をカウントアップ
-const logItems = [...document.querySelectorAll(".log-item")];
-const logBig = document.getElementById("log-big");
-if (logItems.length && logBig) {
-  const digitEls = [...logBig.querySelectorAll(".digit")];
-  const caption = document.getElementById("log-caption-n");
-  let current = -1;
-  const setCount = (i) => {
-    if (i === current) return;
-    current = i;
-    const s = String(i + 1).padStart(2, "0");
-    digitEls.forEach((d, k) => d.querySelector(".roll").style.setProperty("--d", s[k]));
-    caption.textContent = s;
-    logBig.style.setProperty("--log-accent", logItems[i].dataset.accent);
-    logItems.forEach((el, k) => el.classList.toggle("on", k === i));
-  };
-  const pick = () => {
-    const mid = window.innerHeight * 0.55;
-    let best = 0;
-    let bestDist = Infinity;
-    logItems.forEach((el, i) => {
-      const r = el.getBoundingClientRect();
-      const dist = Math.abs(r.top + r.height / 2 - mid);
-      if (dist < bestDist) { bestDist = dist; best = i; }
-    });
-    setCount(best);
-  };
-  let lTicking = false;
-  window.addEventListener("scroll", () => {
-    if (lTicking) return;
-    lTicking = true;
-    requestAnimationFrame(() => { pick(); lTicking = false; });
-  }, { passive: true });
-  pick();
-}
