@@ -4,7 +4,9 @@
 //  images に画像パスを入れると、仮表示（アイコン）から本番画像に切り替わる。
 //    main    … 中央の大きなカード（縦長 3:4）
 //    sub     … 左端を流れるカード（縦長 3:4）。なければ main を使う
-//    bubbles … 丸く切り抜く画像3枚 [左上・左下・右下]（正方形 1:1）
+//    bubbles … 右下の丸い画像（正方形 1:1）。[左上, 左下, 右下] の3番目だけ使う
+//  crop … 左下の丸に、メインビジュアルのどこを切り抜くか [横%, 縦%, 拡大率]
+//  左上の角丸四角には、いつも icon（アプリアイコン）が入る
 // =========================================================
 const WORKS = [
   {
@@ -14,6 +16,7 @@ const WORKS = [
     accent: "#8fe36a",
     icon: "images/work-sticker.png",
     url: "https://apps.apple.com/jp/app/id6811901999",
+    crop: [72, 79, 2.6],
     images: { main: "images/visual/sticker.jpg" },
   },
   {
@@ -23,6 +26,7 @@ const WORKS = [
     accent: "#4b63f0",
     icon: "images/work-stubo.jpg",
     url: "https://apps.apple.com/jp/app/stubo-%E6%97%85%E8%A1%8C%E4%BA%88%E5%AE%9A%E3%82%92%E3%83%81%E3%82%B1%E3%83%83%E3%83%88%E3%81%A7%E5%85%B1%E6%9C%89/id6801696906",
+    crop: [50, 46, 1.8],
     images: {
       main: "images/STUBO/stubo-top.png",
       sub: "images/STUBO/stubo-ticket.png",
@@ -36,6 +40,7 @@ const WORKS = [
     accent: "#8fce2b",
     icon: "images/work-routon.png",
     url: "https://apps.apple.com/jp/app/routon-%E3%83%A9%E3%83%B3%E3%83%8B%E3%83%B3%E3%82%B0-%E3%81%95%E3%82%93%E3%81%BD%E3%81%AE%E8%A8%98%E9%8C%B2/id6790777455",
+    crop: [79, 13, 3],
     images: { main: "images/visual/routon.jpg" },
   },
   {
@@ -45,6 +50,7 @@ const WORKS = [
     accent: "#3a3a3a",
     icon: "images/work-mojimoji.png",
     url: "https://apps.apple.com/jp/app/mojimoji-%E6%96%87%E5%AD%97%E6%8E%A2%E3%81%97-%E3%82%B3%E3%83%A9%E3%83%BC%E3%82%B8%E3%83%A5/id6787369039",
+    crop: [82, 31, 3.2],
     images: { main: "images/visual/mojimoji.jpg" },
   },
   {
@@ -54,6 +60,7 @@ const WORKS = [
     accent: "#101014",
     icon: "images/work-sanpo.png",
     url: "https://apps.apple.com/jp/app/%E3%81%95%E3%82%93%E3%81%BD%E3%81%97%E3%82%88/id6758305298",
+    crop: [50, 72, 3],
     images: { main: "images/visual/sanpo.jpg" },
   },
 ];
@@ -107,13 +114,43 @@ const bubbles = [0, 1, 2].map((b) => {
     const layer = document.createElement("span");
     layer.className = "bubble-layer";
     layer.style.setProperty("--accent", w.accent);
-    const src = (w.images.bubbles || [])[b];
-    layer.innerHTML = media(src, w, `b${b}`);
+    if (b === 0) {
+      // 左上：角丸四角のアプリアイコン
+      layer.innerHTML = `<img src="${w.icon}" alt="" loading="lazy" style="object-fit:cover" />`;
+    } else if (b === 1 && w.images.main && w.crop) {
+      // 左下：メインビジュアルの一部を拡大して切り抜く（指定した点が円の中心に来る）
+      const [x, y, z] = w.crop;
+      layer.innerHTML = `<img class="crop" src="${w.images.main}" alt="" loading="lazy"
+        style="width:${z * 100}%; translate:-${x}% -${y}%" />`;
+    } else {
+      layer.innerHTML = media((w.images.bubbles || [])[b], w, `b${b}`);
+    }
     inner.appendChild(layer);
   });
   el.appendChild(inner);
   return { el, layers: [...inner.children] };
 });
+
+// ---- カーソルについてくる矢印（マウス操作の端末だけ） ----
+const cursor = $("wk-cursor");
+const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+if (finePointer) {
+  let tx = innerWidth / 2, ty = innerHeight / 2, cx = tx, cy = ty;
+  window.addEventListener("pointermove", (e) => {
+    tx = e.clientX;
+    ty = e.clientY;
+    // 表示中の中央カードの上にいるときだけ見せる
+    cursor.classList.toggle("on", !!e.target.closest(".wk-card.is-active"));
+  });
+  document.addEventListener("pointerleave", () => cursor.classList.remove("on"));
+  const follow = () => {
+    cx += (tx - cx) * 0.22;
+    cy += (ty - cy) * 0.22;
+    cursor.style.translate = `${cx.toFixed(1)}px ${cy.toFixed(1)}px`;
+    requestAnimationFrame(follow);
+  };
+  follow();
+}
 
 // ---- 表示 ----
 let active = 0;
@@ -148,6 +185,7 @@ const render = () => {
   go.href = w.url;
   go.dataset.umamiEvent = `works-arrow-${w.name}`;
   go.style.setProperty("--accent", w.accent);
+  cursor.style.setProperty("--accent", w.accent);
   $("wk-go-label").textContent = `${w.name} を App Store で見る`;
 
   // タイトル：1文字ずつせり上がる

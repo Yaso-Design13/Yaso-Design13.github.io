@@ -683,6 +683,8 @@ em { font-style: normal; }
 .bubble--top   { --d: calc(var(--H) * 0.35); --cx: calc(var(--W) * -0.64); --cy: calc(var(--H) * -0.42); }
 .bubble--left  { --d: calc(var(--H) * 0.23); --cx: calc(var(--W) * -0.92); --cy: calc(var(--H) * 0.16); }
 .bubble--right { --d: calc(var(--H) * 0.45); --cx: calc(var(--W) * 1.05);  --cy: calc(var(--H) * 0.36); }
+.bubble--top { border-radius: 26%; }
+.bubble--top .bubble-in { border-radius: 22%; }
 .bubble-in {
   position: relative;
   display: block;
@@ -705,6 +707,14 @@ em { font-style: normal; }
 .bubble--left .bubble-layer.on { --delay: 0.25s; }
 .bubble--right .bubble-layer.on { --delay: 0.35s; }
 .bubble-layer > img { width: 100%; height: 100%; }
+/* 左下：メインビジュアルの切り抜き。指定した点を円の中心に置く */
+.bubble-layer > img.crop {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  height: auto;
+  max-width: none;
+}
 .bubble-layer > .ph--b0 { width: 100%; height: 100%; border-radius: 0; box-shadow: none; object-fit: cover; }
 .bubble-layer > .ph--b1 { width: 56%; height: auto; }
 .bubble-layer > .ph--b2 { width: 48%; height: auto; }
@@ -733,21 +743,53 @@ em { font-style: normal; }
 .wk-go:hover { scale: 1.1; }
 .wk-go:focus-visible { outline: 3px solid var(--blue); outline-offset: 4px; }
 
-/* 縦書きタイトル */
+/* カーソルについてくる矢印 */
+.wk-cursor {
+  --d: 92px;
+  position: fixed;
+  left: calc(var(--d) / -2);
+  top: calc(var(--d) / -2);
+  z-index: 6;
+  width: var(--d);
+  height: var(--d);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--accent, var(--ink)) 72%, #000);
+  border: 5px solid #fff;
+  color: #fff;
+  font-size: 1.7rem;
+  font-weight: 600;
+  pointer-events: none;
+  scale: 0;
+  box-shadow: 0 14px 30px -10px rgba(0, 0, 0, 0.35);
+  transition: scale 0.35s var(--ease), background 0.6s var(--ease);
+}
+.wk-cursor.on { scale: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .wk-go { display: none; }
+  .wk-card.is-active { cursor: none; }
+}
+@media not ((hover: hover) and (pointer: fine)) {
+  .wk-cursor { display: none; }
+}
+
+/* アプリ名とカテゴリ：カード中央の横に縦積み */
 .wk-title {
   position: absolute;
   z-index: 4;
-  left: calc(var(--W) * 0.62);
-  top: calc(var(--H) * -0.46);
+  left: calc(var(--W) * 0.5 + var(--H) * 0.06);
+  top: 0;
+  translate: 0 -50%;
   display: flex;
-  flex-direction: row-reverse;
-  gap: calc(var(--H) * 0.02);
-  writing-mode: vertical-rl;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--H) * 0.016);
 }
 .wk-name {
-  font-size: calc(var(--H) * 0.085);
+  font-size: calc(var(--H) * 0.058);
   font-weight: 600;
-  letter-spacing: 0.02em;
+  letter-spacing: -0.035em;
   line-height: 1;
   white-space: nowrap;
 }
@@ -758,11 +800,10 @@ em { font-style: normal; }
 }
 @keyframes ch-in { from { opacity: 0; transform: translateY(-0.6em); } to { opacity: 1; transform: none; } }
 .wk-cat {
-  font-size: calc(var(--H) * 0.02);
+  font-size: calc(var(--H) * 0.022);
   font-weight: 500;
   color: var(--muted);
   white-space: nowrap;
-  padding-top: calc(var(--H) * 0.01);
   animation: ch-in 0.7s var(--ease) 0.6s both;
 }
 
@@ -808,8 +849,8 @@ em { font-style: normal; }
   .bubble--left  { --d: calc(var(--H) * 0.2);  --cx: calc(var(--W) * -0.56); --cy: calc(var(--H) * 0.34); }
   .bubble--right { --d: calc(var(--H) * 0.34); --cx: calc(var(--W) * 0.5);   --cy: calc(var(--H) * 0.5); }
   .wk-go { left: calc(var(--W) * 0.5 - var(--d) / 2); }
-  .wk-title { left: calc(var(--W) * 0.58); top: calc(var(--H) * -0.5); }
-  .wk-name { font-size: calc(var(--H) * 0.075); }
+  .wk-title { left: calc(var(--W) * 0.56); top: calc(var(--H) * -0.5); translate: none; writing-mode: vertical-rl; flex-direction: row-reverse; }
+  .wk-name { font-size: calc(var(--H) * 0.07); letter-spacing: 0.02em; }
   .wk-cat { font-size: 0.68rem; }
   .wk-hint { display: none; }
 }
