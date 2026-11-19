@@ -239,45 +239,52 @@ em { font-style: normal; }
   font-size: 0.9rem;
   color: var(--muted);
 }
-/* ===== My Policy（単語が集まる） ===== */
-.policy { overflow-x: clip; }
-.policy-head { margin-bottom: clamp(32px, 6vh, 64px); }
-.policy-block { height: 190svh; }
-.policy-stage {
-  position: sticky;
-  top: 0;
-  height: 100svh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 140px 0 clamp(48px, 12svh, 120px);
-  border-top: 1px solid var(--ink);
-  overflow: clip;
+/* ===== My Policy（左に見出し、右に番号＋大きな一文＋タグ） ===== */
+.policy {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: clamp(24px, 4vw, 64px);
 }
-.policy-block + .policy-block .policy-stage { border-top-color: var(--line); }
+.policy-head { position: sticky; top: 96px; align-self: start; }
+.policy-item {
+  display: grid;
+  grid-template-columns: 3.4em minmax(0, 1fr);
+  column-gap: clamp(12px, 1.6vw, 24px);
+  font-size: clamp(2rem, 3.6vw, 3.6rem);
+}
+.policy-item + .policy-item { margin-top: clamp(80px, 16vh, 180px); }
 .policy-no {
-  position: absolute;
-  top: clamp(76px, 12svh, 110px);
-  left: 0;
-  font-family: var(--font-jp);
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 500;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--faint);
+  text-align: right;
+  white-space: nowrap;
 }
-.gather {
-  max-width: 14em;
-  font-size: clamp(2.4rem, 6.6vw, 6.6rem);
+.policy-text {
+  font-size: 1em;
   font-weight: 600;
-  line-height: 1.02;
-  letter-spacing: -0.045em;
-  word-spacing: 0.06em;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
 }
-.gather .g {
-  display: inline-block;
-  will-change: transform;
+.policy-text .kw { font-style: normal; }
+.policy-text .kw-blue { color: var(--blue); }
+.policy-text .kw-lime { background: linear-gradient(transparent 60%, var(--lime) 60%, var(--lime) 92%, transparent 92%); }
+.policy-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(28px, 4vh, 48px);
+  font-size: 1rem;
 }
-.gather .kw { font-style: normal; }
-.gather .kw-blue { color: var(--blue); }
-.gather .kw-lime .g { background: linear-gradient(transparent 60%, var(--lime) 60%, var(--lime) 92%, transparent 92%); }
+.policy-tags .pill { padding: 9px 18px; font-size: 0.8rem; }
+
+@media (max-width: 900px) {
+  .policy { grid-template-columns: 1fr; }
+  .policy-head { position: static; margin-bottom: 24px; }
+  .policy-item { grid-template-columns: 1fr; }
+  .policy-no { text-align: left; font-size: 0.5em; margin-bottom: 8px; }
+}
 
 /* ===== Release Log（大きな数字でカウント） ===== */
 .log {
@@ -445,9 +452,6 @@ em { font-style: normal; }
   html { scroll-behavior: auto; }
   .js .reveal, .js .hero-title .line > span { opacity: 1; transform: none; transition: none; }
   .statement-text .w { color: inherit; }
-  .gather .g { transform: none !important; }
-  .policy-block { height: auto; }
-  .policy-stage { position: relative; height: auto; min-height: 60svh; }
   .js .card { opacity: 1; }
   .js.loaded .card { animation: none; }
   .card { transition: none; }
