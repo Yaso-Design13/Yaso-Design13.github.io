@@ -97,8 +97,10 @@ em { font-style: normal; }
   justify-content: space-between;
   padding: 104px var(--gutter) var(--gutter);
 }
-/* 左上に紹介文と肩書きをまとめる */
+/* 左上に紹介文と肩書きをまとめる（カードより手前に表示） */
 .hero-top {
+  position: relative;
+  z-index: 3;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -127,13 +129,14 @@ em { font-style: normal; }
 
 .hero-bottom {
   display: flex;
-  align-items: flex-end;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 24px;
 }
 .hero-title {
-  /* 画面が低いときは高さに合わせて小さくし、左上の文章とくっつかないようにする */
-  font-size: clamp(88px, min(20vw, 26svh), 380px);
+  /* 「Yaso Design」を1行で、画面幅いっぱいに近い大きさに */
+  font-size: clamp(48px, 16.6vw, 440px);
+  white-space: nowrap;
   font-weight: 700;
   line-height: 0.84;
   letter-spacing: -0.065em;
@@ -145,9 +148,10 @@ em { font-style: normal; }
 .hero { position: relative; }
 .hero-stack {
   position: absolute;
-  left: 62%;
-  top: 55%;
-  width: clamp(220px, 29vw, 460px);
+  left: 57%;
+  top: 50%;
+  /* 参考に合わせて、画面の高さの7割ほどの大きさに（横長・縦長どちらでもはみ出さない） */
+  width: min(34vw, 54svh);
   aspect-ratio: 3 / 4;
   transform: translate(-50%, -50%);
   z-index: 2;
@@ -187,10 +191,11 @@ em { font-style: normal; }
   to   { opacity: 1; transform: none; }
 }
 .hero-year {
-  font-size: clamp(1rem, 2vw, 1.6rem);
+  font-size: clamp(1rem, 2.2vw, 2rem);
   font-weight: 600;
+  letter-spacing: -0.02em;
   white-space: nowrap;
-  padding-bottom: 0.6em;
+  padding-top: 0.5em; /* ロゴ文字の上端にそろえる */
 }
 
 /* 読み込み時のせり上がり */
@@ -336,8 +341,9 @@ em { font-style: normal; }
   .nav a:nth-child(n+3) { display: none; }
   .hero { padding-top: 88px; }
   .hero-bottom { flex-direction: column; align-items: flex-start; gap: 8px; }
-  .hero-year { padding-bottom: 0; }
-  .hero-stack { left: 52%; top: 55%; width: 58vw; }
+  .hero-year { padding: 0; }
+  .hero-title { font-size: 17.4vw; } /* © が下に回るので、横幅いっぱいまで大きく */
+  .hero-stack { left: 50%; top: 52%; width: 64vw; }
 
 
   .contact-arrow { position: static; margin-top: 12px; }
