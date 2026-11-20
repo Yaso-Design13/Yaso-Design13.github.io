@@ -170,8 +170,8 @@ em { font-style: normal; }
 .hero-stack:focus-visible { outline: none; }
 .hero-stack:focus-visible .card:last-child { outline: 3px solid var(--blue); outline-offset: 4px; }
 
-/* スクロールでカードを積む：ヒーローを固定し、2枚目以降が下から1枚ずつ落ちてくる */
-.js .hero-pin { height: calc(100svh + 150svh); }
+/* スクロールでカードを積む：ヒーローを固定し、最初は空、下から1枚ずつ落ちてくる */
+.js .hero-pin { height: calc(100svh + 180svh); }
 .js .hero-pin > .hero {
   position: sticky;
   top: 0;
@@ -179,16 +179,9 @@ em { font-style: normal; }
   min-height: 0;
   overflow: clip; /* 下から来るカードを画面外では見せない */
 }
-.js .card:not(:first-child) {
+.js .card {
   /* --t：0＝画面の下、1＝積み終わり（script.js がスクロール量から計算） */
   transform: translateY(calc((1 - var(--t, 0)) * 105svh)) rotate(calc((1 - var(--t, 0)) * 14deg));
-}
-/* 1枚目だけは読み込み時に配られる */
-.js .card:first-child { opacity: 0; }
-.js.loaded .card:first-child { animation: deal 1s var(--ease) 0.25s both; }
-@keyframes deal {
-  from { opacity: 0; transform: translateY(40vh) rotate(8deg); }
-  to   { opacity: 1; transform: none; }
 }
 .hero-year {
   font-size: clamp(1rem, 2.2vw, 2rem);
@@ -311,8 +304,7 @@ em { font-style: normal; }
   .statement-text .w { color: inherit; }
   .js .hero-pin { height: auto; }
   .js .hero-pin > .hero { position: relative; height: auto; min-height: 100svh; }
-  .js .card, .js .card:first-child { opacity: 1; transform: none; }
-  .js.loaded .card:first-child { animation: none; }
+  .js .card { transform: none; }
   .card { transition: none; }
 }
 

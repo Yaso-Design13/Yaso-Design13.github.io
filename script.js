@@ -26,9 +26,9 @@ if ("IntersectionObserver" in window) {
   items.forEach((el) => el.classList.add("in"));
 }
 
-// ヒーロー：スクロール量に合わせて、2枚目以降のカードを1枚ずつ積む
+// ヒーロー：スクロール量に合わせて、カードを1枚ずつ積む
 const pin = document.querySelector(".hero-pin");
-const stacked = pin ? [...pin.querySelectorAll(".card")].slice(1) : [];
+const stacked = pin ? [...pin.querySelectorAll(".card")] : [];
 if (pin && stacked.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   const ease = (t) => 1 - Math.pow(1 - t, 3); // 最後にふわっと着地
   let queued = false;
