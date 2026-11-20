@@ -226,55 +226,6 @@ em { font-style: normal; }
   color: var(--muted);
 }
 
-/* ===== セクション共通 ===== */
-.section { padding: clamp(80px, 14vh, 160px) var(--gutter); }
-.side-title {
-  font-size: clamp(1.6rem, 2.6vw, 2.4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-}
-.side-jp {
-  margin-top: 8px;
-  font-family: var(--font-jp);
-  font-size: 0.9rem;
-  color: var(--muted);
-}
-/* ===== My Policy（左に見出し、右に番号＋大きな一文＋タグ） ===== */
-.policy {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
-  gap: clamp(24px, 4vw, 64px);
-}
-.policy-head { position: sticky; top: 96px; align-self: start; }
-.policy-item {
-  display: grid;
-  grid-template-columns: 3.4em minmax(0, 1fr);
-  column-gap: clamp(12px, 1.6vw, 24px);
-  font-size: clamp(2rem, 3.6vw, 3.6rem);
-}
-.policy-item + .policy-item { margin-top: clamp(80px, 16vh, 180px); }
-.policy-no {
-  font-weight: 500;
-  line-height: 1.12;
-  letter-spacing: -0.02em;
-  color: var(--faint);
-  text-align: right;
-  white-space: nowrap;
-}
-.policy-text {
-  font-size: 1em;
-  font-weight: 600;
-  line-height: 1.12;
-  letter-spacing: -0.035em;
-}
-
-@media (max-width: 900px) {
-  .policy { grid-template-columns: 1fr; }
-  .policy-head { position: static; margin-bottom: 24px; }
-  .policy-item { grid-template-columns: 1fr; }
-  .policy-no { text-align: left; font-size: 0.5em; margin-bottom: 8px; }
-}
 
 /* ===== Contact ===== */
 .contact {
