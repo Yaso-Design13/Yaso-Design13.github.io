@@ -31,22 +31,33 @@ const pin = document.querySelector(".hero-pin");
 const stacked = pin ? [...pin.querySelectorAll(".card")] : [];
 if (pin && stacked.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
   const ease = (t) => 1 - Math.pow(1 - t, 3); // 最後にふわっと着地
-  let queued = false;
-  const stack = () => {
+  let cur = 0;     // 実際に表示している進み具合
+  let running = false;
+  const target = () => {
     const range = pin.offsetHeight - window.innerHeight;
-    const p = Math.min(Math.max(-pin.getBoundingClientRect().top / range, 0), 1);
+    return Math.min(Math.max(-pin.getBoundingClientRect().top / range, 0), 1);
+  };
+  const draw = () => {
     const seg = 1 / stacked.length;
     stacked.forEach((card, i) => {
-      const t = Math.min(Math.max((p - i * seg) / seg, 0), 1);
+      const t = Math.min(Math.max((cur - i * seg) / seg, 0), 1);
       card.style.setProperty("--t", ease(t).toFixed(4));
     });
-    queued = false;
   };
-  window.addEventListener("scroll", () => {
-    if (!queued) { queued = true; requestAnimationFrame(stack); }
-  }, { passive: true });
-  window.addEventListener("resize", stack);
-  stack();
+  // スクロールに少し遅れてついていくことで、ゆっくり重なって見えるようにする
+  const tick = () => {
+    const goal = target();
+    cur += (goal - cur) * 0.08;
+    if (Math.abs(goal - cur) < 0.0005) cur = goal;
+    draw();
+    running = cur !== goal;
+    if (running) requestAnimationFrame(tick);
+  };
+  const wake = () => { if (!running) { running = true; requestAnimationFrame(tick); } };
+  window.addEventListener("scroll", wake, { passive: true });
+  window.addEventListener("resize", wake);
+  cur = target(); // 途中から再読み込みしたときは、その位置から始める
+  draw();
 }
 
 // ステートメント：単語ごとに分割し、スクロール量に合わせて1語ずつ濃くする

@@ -171,7 +171,7 @@ em { font-style: normal; }
 .hero-stack:focus-visible .card:last-child { outline: 3px solid var(--blue); outline-offset: 4px; }
 
 /* スクロールでカードを積む：ヒーローを固定し、最初は空、下から1枚ずつ落ちてくる */
-.js .hero-pin { height: calc(100svh + 180svh); }
+.js .hero-pin { height: calc(100svh + 280svh); }
 .js .hero-pin > .hero {
   position: sticky;
   top: 0;
