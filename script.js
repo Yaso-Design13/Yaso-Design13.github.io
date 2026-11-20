@@ -26,6 +26,29 @@ if ("IntersectionObserver" in window) {
   items.forEach((el) => el.classList.add("in"));
 }
 
+// ヒーロー：スクロール量に合わせて、2枚目以降のカードを1枚ずつ積む
+const pin = document.querySelector(".hero-pin");
+const stacked = pin ? [...pin.querySelectorAll(".card")].slice(1) : [];
+if (pin && stacked.length && !matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  const ease = (t) => 1 - Math.pow(1 - t, 3); // 最後にふわっと着地
+  let queued = false;
+  const stack = () => {
+    const range = pin.offsetHeight - window.innerHeight;
+    const p = Math.min(Math.max(-pin.getBoundingClientRect().top / range, 0), 1);
+    const seg = 1 / stacked.length;
+    stacked.forEach((card, i) => {
+      const t = Math.min(Math.max((p - i * seg) / seg, 0), 1);
+      card.style.setProperty("--t", ease(t).toFixed(4));
+    });
+    queued = false;
+  };
+  window.addEventListener("scroll", () => {
+    if (!queued) { queued = true; requestAnimationFrame(stack); }
+  }, { passive: true });
+  window.addEventListener("resize", stack);
+  stack();
+}
+
 // ステートメント：単語ごとに分割し、スクロール量に合わせて1語ずつ濃くする
 const statement = document.querySelector("[data-words]");
 if (statement) {
