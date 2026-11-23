@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Yaso Design — Portfolio</title>
-  <meta name="description" content="Yaso Design のポートフォリオ。プロダクトデザイナー。UI・ブランド・プロダクトを横断してデザインしています。" />
+  <title>Yaso Design — 日常に、ポジティブをちょっと。</title>
+  <meta name="description" content="Yaso Design のポートフォリオ。日常に、ポジティブをちょっと。アプリをつくるプロダクトデザイナー。" />
 
-  <meta property="og:title" content="Yaso Design — Portfolio" />
+  <meta property="og:title" content="Yaso Design — 日常に、ポジティブをちょっと。" />
   <meta property="og:description" content="プロダクトデザイナー Yaso Design のポートフォリオ。" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://yaso-design13.github.io/" />
@@ -21,98 +21,199 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@800&family=Noto+Sans+JP:wght@600;900&family=Zen+Kaku+Gothic+New:wght@700&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
   <!-- アクセス解析（Umami・Cookieなし） -->
   <script defer src="https://cloud.umami.is/script.js" data-website-id="2fbafd78-92d8-40ac-81d7-92cc947493ab"></script>
-
-  <!-- JSが有効なときだけ表示アニメを効かせる（無効でも本文は必ず見える） -->
   <script>document.documentElement.className += " js";</script>
 </head>
 <body>
-  <!-- ===== ヘッダー ===== -->
+  <!-- ===== ロゴ（スクロールで流れる）とメニュー（固定） ===== -->
   <header class="site-header">
-    <a href="#top" class="brand" aria-label="Yaso Design トップへ">
-      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
-        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
-        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
-      </svg>
-      <span>Yaso Design</span>
+    <a href="index.html" class="logo" aria-label="Yaso Design トップへ">
+      <span class="logo-name">Yaso Design</span>
     </a>
-    <nav class="nav" aria-label="メインメニュー">
-      <a href="works.html">Works</a>
-      <a href="#contact">Contact</a>
-    </nav>
   </header>
+  <button class="menu-btn" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="menu">
+    <span></span><span></span><span></span>
+  </button>
+  <nav class="menu" id="menu" aria-label="メインメニュー">
+    <ul class="menu-list">
+      <li><a href="#message">メッセージ</a></li>
+      <li><a href="#apps">つくったアプリ</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <p class="menu-foot"><a href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer">X (Twitter) ↗</a></p>
+  </nav>
 
-  <main id="top">
-    <!-- ===== ヒーロー ===== -->
-    <!-- スクロールしている間ヒーローを固定し、カードを1枚ずつ積んでいく -->
-    <div class="hero-pin">
-    <section class="hero">
-      <div class="hero-top">
-        <p class="hero-intro reveal">
-          <span class="nb">日常に、</span><span class="nb">ポジティブを</span><span class="nb">ちょっと。</span><span class="nb">アプリをつくる</span><span class="nb">プロダクトデザイナー。</span>
-        </p>
+  <main>
+    <!-- ===== ヒーロー：縦書きのコピー + 左だけ丸い大きな画像（輪郭に沿って英字が流れる） ===== -->
+    <section class="hero" id="top">
+      <h1 class="fv-title" aria-label="日常に、ポジティブをちょっと。">
+        <span class="fv-col" data-pop>日常に、ポジティブを</span>
+        <span class="fv-col fv-col--2" data-pop>ちょっと。</span>
+      </h1>
+
+      <div class="fv-slider" id="fv-slider">
+        <svg class="fv-ring" id="fv-ring" aria-hidden="true">
+          <path id="fv-ring-path" fill="none" />
+          <text><textPath href="#fv-ring-path" id="fv-ring-text"></textPath></text>
+        </svg>
+        <div class="fv-slides">
+          <img class="fv-slide is-on" src="images/visual/mawarimichi.jpg" alt="回り道" />
+          <img class="fv-slide" src="images/visual/sticker.jpg" alt="sticker" />
+          <img class="fv-slide" src="images/STUBO/stubo-top.png" alt="STUBO" />
+          <img class="fv-slide" src="images/visual/routon.jpg" alt="ROUTON" />
+          <img class="fv-slide fv-slide--bottom" src="images/visual/mojimoji.jpg" alt="mojimoji" />
+          <img class="fv-slide fv-slide--bottom" src="images/visual/sanpo.jpg" alt="さんぽしよ" />
+        </div>
       </div>
 
-      <div class="hero-bottom">
-        <h1 class="hero-title">
-          <span class="line"><span>Yaso Design</span></span>
-        </h1>
-        <p class="hero-year">© 2026</p>
+      <!-- 左端からのぞく、反転した丸い画像 -->
+      <div class="fv-peek" aria-hidden="true">
+        <div class="fv-slides fv-slides--peek">
+          <img class="fv-slide" src="images/visual/mawarimichi.jpg" alt="" />
+          <img class="fv-slide" src="images/visual/sticker.jpg" alt="" />
+          <img class="fv-slide" src="images/STUBO/stubo-top.png" alt="" />
+          <img class="fv-slide" src="images/visual/routon.jpg" alt="" />
+          <img class="fv-slide fv-slide--bottom" src="images/visual/mojimoji.jpg" alt="" />
+          <img class="fv-slide fv-slide--bottom is-on" src="images/visual/sanpo.jpg" alt="" />
+        </div>
       </div>
-
-      <!-- 重なったメインビジュアル。ホバーで少し広がり、クリックで Works へ -->
-      <a class="hero-stack" href="works.html" aria-label="Works を見る" data-umami-event="hero-画像">
-        <span class="card" style="--x: -3%; --y: 2%; --r: -19deg; --fx: -9%; --fy: 3%; --fr: -26deg;">
-          <img src="images/visual/sanpo.jpg" alt="" width="1200" height="1600" />
-        </span>
-        <span class="card" style="--x: 3%; --y: -3%; --r: -5deg; --fx: 7%; --fy: -6%; --fr: -7deg;">
-          <img src="images/visual/mojimoji.jpg" alt="" width="1200" height="1600" />
-        </span>
-        <span class="card" style="--x: -2%; --y: 0%; --r: -10deg; --fx: -6%; --fy: -1%; --fr: -15deg;">
-          <img src="images/visual/routon.jpg" alt="" width="1200" height="1600" />
-        </span>
-        <span class="card" style="--x: 0%; --y: 0%; --r: 5deg; --fx: 3%; --fy: -2%; --fr: 8deg;">
-          <img src="images/visual/sticker.jpg" alt="" width="1200" height="1600" fetchpriority="high" />
-        </span>
-      </a>
     </section>
+
+    <!-- ===== メッセージ → アプリ紹介 → むすび。甲羅が通る道すじは script.js が計算（道そのものは描かない） ===== -->
+    <div class="journey" id="journey">
+      <svg class="road" id="road" aria-hidden="true">
+      </svg>
+      <div class="shell" id="shell" aria-hidden="true">
+        <span class="shell-dust"></span>
+        <span class="shell-spin"><img src="images/hogehoge/shell-top.png" alt="" width="320" height="320" /></span>
+      </div>
+
+      <!-- メッセージ -->
+      <section class="message" id="message" aria-label="メッセージ">
+        <h2 class="message-text">
+          <span class="ml">使うたびに、ちょっと気分が上がる。</span>
+          <span class="ml">いつもの道に、小さな発見がある。</span>
+          <span class="ml">好きなものが、もっと好きになる。</span>
+          <span class="ml">そんな「ポジティブをちょっと」を、</span>
+          <span class="ml">アプリにしてお届けしています。</span>
+        </h2>
+      </section>
+
+      <!-- アプリ紹介 -->
+      <div class="apps" id="apps">
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">歩きたい歩数で、<br />散歩道をつくる。</h3>
+              <p class="app-desc">目標の歩数を決めるだけで、今いる場所から出て戻ってくる散歩ルートを描くアプリ。いつもと違う路地や、ちょっと遠回りの道に出会えます。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6837281488" target="_blank" rel="noopener noreferrer" data-umami-event="app-回り道" aria-label="回り道 を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-mawarimichi.png" alt="回り道 のアプリアイコン" width="1024" height="1024" loading="lazy" /></figure>
+          </div>
+        </article>
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">あなたの「好き」を、<br />ステッカーにして<br />貼っていこう。</h3>
+              <p class="app-desc">好きなものを切り抜いてステッカーにして、自由なボードに貼り付けるアプリ。オリジナルステッカーや絵文字で、思いのままに彩れます。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6811901999" target="_blank" rel="noopener noreferrer" data-umami-event="app-sticker" aria-label="sticker を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-sticker.png" alt="sticker のアプリアイコン" width="1024" height="1024" loading="lazy" /></figure>
+          </div>
+        </article>
+
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">旅の予定も、<br />思い出も、<br />一枚のチケットに。</h3>
+              <p class="app-desc">旅行の予定や思い出を、あなただけのチケットにして、みんなとシェアする旅行アプリ。行く前も、行ったあとも、旅がもっとたのしくなります。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6801696906" target="_blank" rel="noopener noreferrer" data-umami-event="app-STUBO" aria-label="STUBO を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-stubo.jpg" alt="STUBO のアプリアイコン" loading="lazy" /></figure>
+          </div>
+        </article>
+
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">歩いた道が、<br />いきものになる。</h3>
+              <p class="app-desc">GPS で描いた軌跡が、キャラクターに変化する、さんぽ＆ランニングアプリ。きょうはどんないきものが生まれるか、歩くのがたのしみになります。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6790777455" target="_blank" rel="noopener noreferrer" data-umami-event="app-ROUTON" aria-label="ROUTON を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-routon.png" alt="ROUTON のアプリアイコン" width="1024" height="1024" loading="lazy" /></figure>
+          </div>
+        </article>
+
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">街で見つけた文字で、<br />ことばをつくろう。</h3>
+              <p class="app-desc">街中で見つけた文字をあつめて、つなげて言葉にする。看板や貼り紙の文字が宝ものに変わる、日常をタイポグラフィで遊ぶ収集アプリ。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6787369039" target="_blank" rel="noopener noreferrer" data-umami-event="app-mojimoji" aria-label="mojimoji を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-mojimoji.png" alt="mojimoji のアプリアイコン" width="1024" height="1024" loading="lazy" /></figure>
+          </div>
+        </article>
+
+        <article class="app">
+          <div class="app-body">
+            <div class="app-text reveal">
+              <h3 class="app-title">いつもの道に、<br />小さなお題を。</h3>
+              <p class="app-desc">ゆるく散歩を楽しむための、お題提案アプリ。「マンホールを撮る」などの小さなお題で、いつもの道に発見を添えます。</p>
+              <a class="pill" href="https://apps.apple.com/jp/app/id6758305298" target="_blank" rel="noopener noreferrer" data-umami-event="app-さんぽしよ" aria-label="さんぽしよ を App Store で見る">
+                <span class="pill-txt">Storeで見る</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+              </a>
+            </div>
+            <figure class="app-img app-icon reveal"><img src="images/work-sanpo.png" alt="さんぽしよ のアプリアイコン" width="1024" height="1024" loading="lazy" /></figure>
+          </div>
+        </article>
+      </div>
+
+      <!-- むすび -->
+      <section class="closing" id="contact" aria-label="お問い合わせ">
+        <h2 class="message-text">
+          <span class="ml">毎日のなかに、</span>
+          <span class="ml">ちょっとだけ、うれしいことを。</span>
+          <span class="ml">これからも、つくり続けていきます。</span>
+          <span class="ml">&nbsp;</span>
+          <span class="ml">お仕事のご相談・雑談は、</span>
+          <span class="ml">X の DM からお気軽にどうぞ。</span>
+        </h2>
+        <a class="pill reveal" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="contact-XのDM">
+          <span class="pill-txt">X で DM する</span><span class="pill-circle" aria-hidden="true"><svg viewBox="0 0 10 15"><path d="M2 2l5.5 5.5L2 13" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+        </a>
+      </section>
     </div>
 
-    <!-- ===== ステートメント（スクロールで1語ずつ濃くなる） ===== -->
-    <section class="statement">
-      <p class="statement-text" data-words>
-        A little <em class="hl-lime">positivity</em>, for <em class="hl-blue">every day.</em>
-      </p>
-      <p class="statement-jp reveal">日常に、ポジティブをちょっと。</p>
-    </section>
-
-    <!-- ===== Contact ===== -->
-    <section id="contact" class="contact">
-      <p class="contact-label">Contact</p>
-      <a class="contact-big" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="contact-XのDM">
-        <span>Let’s make</span>
-        <span>something <em class="hl-lime">fun.</em></span>
-        <span class="contact-arrow" aria-hidden="true">↗</span>
-      </a>
-      <p class="contact-jp">お仕事のご相談・ご連絡は、X の DM からお気軽にどうぞ。</p>
+    <!-- ===== エンディング：もう一度タイトル ===== -->
+    <section class="ending" aria-label="おわりに">
+      <p class="ending-title">日常に、ポジティブを<br />ちょっと。</p>
+      <p class="hero-en">A LITTLE POSITIVITY</p>
     </section>
   </main>
 
   <footer class="site-footer">
-    <a href="#top" class="brand">
-      <svg class="mark" viewBox="0 0 46 24" aria-hidden="true">
-        <polygon points="0,24 22,24 0,2" fill="var(--blue)" />
-        <polygon points="24,24 46,24 24,2" fill="var(--lime)" />
-      </svg>
-      <span>Yaso Design</span>
-    </a>
-    <a class="footer-x" href="https://x.com/yaso_design" target="_blank" rel="noopener noreferrer" data-umami-event="footer-X">X (Twitter) ↗</a>
-    <p class="copy">© <span id="year"></span> Yaso Design</p>
+    <!-- ほげほげ：タップすると「I’m HOGEHOGE」としゃべる -->
+    <button class="foot-hoge" type="button" aria-label="ほげほげに話しかける">
+      <span class="foot-say" aria-live="polite"></span>
+      <img src="images/hogehoge/hoge-360.png" alt="" width="360" height="360" loading="lazy" />
+    </button>
+    <p class="copy">© <span data-year>2026</span> Yaso Design</p>
   </footer>
 
   <script src="script.js"></script>
